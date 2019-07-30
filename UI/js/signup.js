@@ -1,5 +1,6 @@
 const animatedForm = ()=>{
     const arrows = document.querySelectorAll('.fa-arrow-down'); 
+
     arrows.forEach(arrow => {
         arrow.addEventListener('click', ()=>{
 
@@ -30,11 +31,9 @@ const animatedForm = ()=>{
 } 
 
 const validateInput = (userData) => {
-    if(userData.value.length < 6 && userData.value !== ''){
-        // reactionLight('rgb(189, 87, 87)');
-
+    if(userData.value.length < 6 && userData.value === ''){
+        return alert('Something wrong with you info you provided.')
     }else {
-        // reactionLight('rgb(87, 189, 130)');
         return true;    
     }
 }
@@ -44,14 +43,13 @@ const validateEmail = (email) =>{
     if(validMail.test(email.value)){
         return true;
     }else{
-        // reactionLight('rgb(189, 87, 87)');
+        return alert('Email seems to be invalid.');
     }
 }
 const nextField = (parentDiv, nextForm) =>{
     parentDiv.classList.add('inactive'); 
     parentDiv.classList.remove('active'); 
     nextForm.classList.add('active');
-
 }
 
 

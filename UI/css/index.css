@@ -188,20 +188,15 @@ body {
     
     }
 
-    #wrongInput {
-        color: #FF0000;
-        text-align: center;
-    }
-
     .main-container .footer {
         grid-column: span 13;
-        margin-top: -7%;
+        margin-top: -6%;
     }
 
     .footer p {
         margin-top: 100px;
         text-align: center;
-        font-size: 23px;
+        font-size: 15px;
         font-weight: bold;
         color: #fff;
     }
