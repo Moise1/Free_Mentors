@@ -1,0 +1,25 @@
+{
+  "name": "free_mentors",
+  "version": "1.0.0",
+  "description": "Free Mentors is a social initiative where accomplished professionals become role models to",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moise1/Free_Mentors.git"
+  },
+  "keywords": [
+    "Mentorship",
+    "NodeJS",
+    "Express",
+    "PostgreSQL"
+  ],
+  "author": "Moise1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moise1/Free_Mentors/issues"
+  },
+  "homepage": "https://github.com/Moise1/Free_Mentors#readme"
+}
