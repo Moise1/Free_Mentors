@@ -9,11 +9,8 @@ const animatedForm = ()=>{
             const nextForm = parentDiv.nextElementSibling;
 
             // Execute validation 
-            if(userInput.type === 'text' && validateInput(userInput)){
+           if(userInput.type === 'email' && validateEmail(userInput)){
                 nextField(parentDiv, nextForm);
-            }else if(userInput.type === 'email' && validateEmail(userInput)){
-                nextField(parentDiv, nextForm);
-                
             }else if(userInput.type === 'password' && validateInput(userInput)){
                 nextField(parentDiv, nextForm);
 
@@ -53,9 +50,4 @@ const nextField = (parentDiv, nextForm) =>{
 }
 
 
-animatedForm(); 
-
-formValidator = () => {
-    window.location.assign('./pages/mentors.html');
-}
-
+animatedForm();

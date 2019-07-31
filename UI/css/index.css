@@ -40,21 +40,18 @@ body {
         position: sticky;
         border-bottom: 1px solid #DBE0E4;
         box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
-        font-family: 'Montserrat', 'Ubuntu' sans-serif;
+        font-family: 'Montserrat', 'Ubuntu', sans-serif;
     }
-
 
     .header .logo {
         display: flex;
         width: 11%;
         height: inherit;
-
     }
 
     .header i {
         margin: 20px;
         font-size: 25px;
-
     }
 
     .register-buttons {
@@ -75,6 +72,7 @@ body {
         border-radius: 5px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
     }
+    
 
     #admin-dash{
         position: absolute;
@@ -83,14 +81,6 @@ body {
         padding: 10px 0 0 -4px; 
     }
 
-    #adminLogin:hover {
-        color: #013243;
-    }
-
-    #adminLogin i {
-        margin-top: 30px;
-        display: flex;
-    }
 
     #free-mentors{
         color: #008000	;
@@ -236,43 +226,35 @@ body {
 
     .register-buttons {
         margin-left: 60%;
-        justify-content: space-between;
         width: 13%;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: 'Montserrat', 'Ubuntu', sans-serif;
 
     }
 
-    /* .register-buttons a button {
 
+    .register-buttons a button {
         cursor: pointer;
-        margin: 10px 70px 0 0;
-        padding: 6px;
         color: #fff;
-        width: 100px;
+        margin: 15px 10px;
+        padding: 7px;
+        width: 40%;
+        padding: 2;
         border: none;
-        background: #013243;
+        background: #008000;
         font-size: 15px;
         border-radius: 5px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
-    } */
+    }
 
-    #adminLogin {
+    #admin-dash{
         position: absolute;
-        margin-top: -62px;
-        margin-left: 120px;
-        height: 78px;
-    }
-
-    #adminLogin:hover {
-        color: #013243;
-    }
-
-    #adminLogin i {
-        margin-top: 30px;
-        display: flex;
+        margin-bottom: 40px;
+        width: 11%;
+        padding: 10px 0 0 -4px; 
     }
 
 
+    
     #adminLogin p {
         margin-top: 0;
         font-family: 'Ubuntu', sans-serif;
@@ -281,112 +263,101 @@ body {
         padding: 2px;
     }
 
-
-
-    #auto-mart {
-        color: #013243;
+    #free-mentors{
+        color: #008000	;
         margin: 0;
+        padding-left: 5px;
+    } 
+
+    .content-container {
+        grid-column: 1/13;
+        grid-row: 2/6;
+        position: relative;
+
     }
 
-   
-    .customer-care {
-        width: 60%;
+    .signup-form {
+        height: 80vh; 
+        display: flex;
+    }
+
+    .signup-form h1 {
+        top: 30%;
+        left: 45%;
+        margin-bottom: -80px;
+        font-weight: 100px;
+        font-size: 25px;
+        color: #fff;
         position: absolute;
-        margin: 4% 25%;
     }
 
-
-    @keyframes BackgroundGradient {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 50% 100%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    .customer-care p {
-        text-align: center;
-        padding: 30px;
-        background: linear-gradient(132deg, blue, #fff, blue);
-        background-size: 500% 500%;
-        animation: BackgroundGradient 20s ease infinite;
-        border-radius: 6px;
-    }
-
-
-    .content-container form {
+    .signup-form > div {
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        background: #fff; 
+        height: 50px; 
         width: 400px;
-        margin: 40% 80% auto;
-        height: 480px;
-        background: #013243;
-        opacity: 0.8;
-        padding: 15px;
-        border-radius: 6px;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-radius: 5px; 
+        transition: all 0.5s ease;
     }
 
-    .content-container form>input {
-        margin: auto;
-        display: block;
-        padding: 7px;
-        width: 40%;
-        -webkit-transition: width .35s ease-in-out;
-        transition: width .35s ease-in-out;
-        margin: 35px auto;
-        border-radius: 20px;
-        outline: none;
-        border: 2px solid #fff;
-        background: none;
-        text-align: center;
-        color: #fff;
-
-    }
-
-    .content-container form>input:focus {
-        width: 50%;
-
-    }
-
-
-
-    form h3 {
-        text-align: center;
-        color: #fff;
-    }
-
-    form button {
+    .signup-form > div > i{
+        padding: 10px;
         cursor: pointer;
-        margin: 10px 90px auto;
-        width: 55%;
-        padding: 7px;
-        border-radius: 20px;
+        color: #008000;
+    }
+
+    .signup-form > div > input {
+        background: none; 
+        border: none;
+        flex: 1;
+        height: 100%;
         outline: none;
-        border: 2px solid #fff;
-        background: #000;
-        text-align: center;
-        color: #fff;
-        font-weight: bold;
+    }
+    
+    .signup-form > div.inactive{
+        opacity: 0; 
+        pointer-events: none;
+        transform: translate(-50%, 50%);
+    }
+    
+    .signup-form > div.active{
+        opacity: 1; 
+        pointer-events: all; 
+        transform: translate(-50%, -50%);
+    }
+    
+    /* Shake the form */
 
+    @keyframes shake{
+        0%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        } 
+        50%{
+            transform: translate(-50%, -50%) rotate(10deg)
+        }
+        100%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        }
+    
     }
 
-
-    .footer {
+    .main-container .footer {
         grid-column: span 13;
-        grid-row: 5;
+        margin-top: -6%;
     }
-    
+
     .footer p {
-        margin-top: 50px;
+        margin-top: 100px;
         text-align: center;
-        font-size: 23px;
+        font-size: 15px;
         font-weight: bold;
         color: #fff;
-    
     }
 
 
@@ -403,12 +374,7 @@ body {
     }
 
     .main-container {
-        background: url('../images/car1.jpg') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        min-height: 670px;
+        height: 600px;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         height: auto;
@@ -426,177 +392,148 @@ body {
         box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
     }
 
-    .header .logo {
+    .logo{
         display: flex;
-        width: 11%;
-        height: inherit;
+        flex-direction: row;
+        width: 15%;
+        margin-left: 10px; 
+    }  
 
+    .logo i{
+        margin: 20px 0 0 0;
+        padding-right: 4px;
     }
 
-    .header i {
-        margin: 20px;
-        font-size: 25px;
-
+    .logo h3 {
+        font-size: 14px;
+        margin-top: 40%;
     }
+
 
     .register-buttons {
         display: flex;
-        margin-top: 10px;
-        margin-left: 55%;
+        margin-top: 5px;
+        margin-left: 32%;
         justify-content: space-between;
         width: 20%;
-        font-family: 'Ubuntu', sans-serif;
-
-
+        font-family: 'Monsterat', 'Ubuntu', sans-serif;
     }
 
     .register-buttons a button {
         cursor: pointer;
-        margin: 8px auto;
+        margin: 15px auto;
         padding: 6px;
         width: 70px;
         border: none;
         color: #fff;
-        background: #013243;
+        background: #008000;
         font-size: 15px;
         border-radius: 5px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
-
     }
 
-
-    #auto-mart {
-        color: #013243;
-        margin: 0;
-    }
-
-    #adminLogin {
+    #admin-dash{
         position: absolute;
-        margin-top: -17px;
-        margin-left: 70px;
-        height: 78px;
-
+        margin: 15px 0 0 10px;
     }
 
-    #adminLogin:hover {
-        color: #013243;
+    #free-mentors{
+        color: #008000;
+        margin: 0;
+        padding-left: 5px;
     }
 
-    #adminLogin i {
-        margin-top: 22px;
+
+    .signup-form {
+        height: 80vh; 
         display: flex;
     }
 
-
-    #adminLogin p {
-        margin-top: 0;
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 15px;
-        margin-top: 11px;
-        padding: 2px;
-
-    }
- 
-
-    .customer-care {
-        width: 60%;
+    .signup-form h1 {
+        top: 30%;
+        left: 38%;
+        margin-bottom: -80px;
+        font-weight: 100px;
+        font-size: 25px;
+        color: #fff;
         position: absolute;
-        margin: 10% 20% auto;
     }
 
-
-    @keyframes BackgroundGradient {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 50% 100%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
+    .signup-form > div {
+        position: absolute; 
+        top: 50%; 
+        left: 48%; 
+        transform: translate(-50%, -50%); 
+        background: #fff; 
+        height: 50px; 
+        width: 250px;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-radius: 5px; 
+        transition: all 0.5s ease;
     }
 
-    .customer-care p {
-        text-align: center;
-        padding: 30px;
-        background: linear-gradient(132deg, blue, #fff, blue);
-        background-size: 500% 500%;
-        animation: BackgroundGradient 20s ease infinite;
-        border-radius: 6px;
-    }
-
-
-    .content-container form {
-        width: 400px;
-        margin: 50%  25%;
-        height: 470px;
-        background: #013243;
-        opacity: 0.8;
-        padding: 15px;
-        border-radius: 6px;
-    }
-
-    .content-container form>input {
-        margin: auto;
-        display: block;
-        padding: 7px;
-        width: 40%;
-        -webkit-transition: width .35s ease-in-out;
-        transition: width .35s ease-in-out;
-        margin: 35px auto;
-        border-radius: 20px;
-        outline: none;
-        border: 2px solid #fff;
-        background: none;
-        text-align: center;
-        color: #fff;
-
-    }
-
-    .content-container form >input:focus {
-        width: 50%;
-
-    }
-
-    form h3 {
-        text-align: center;
-        color: #fff;
-    }
-
-    form button {
+    .signup-form > div > i{
+        padding: 10px;
         cursor: pointer;
-        margin: 10px 90px auto;
-        width: 55%;
-        padding: 7px;
-        border-radius: 20px;
-        outline: none;
-        border: 2px solid #fff;
-        background: #000;
-        text-align: center;
-        color: #fff;
-        font-weight: bold;
-
+        color: #008000;
     }
 
+    .signup-form > div > input {
+        background: none; 
+        border: none;
+        flex: 1;
+        height: 100%;
+        outline: none;
+    }
+    
+    .signup-form > div.inactive{
+        opacity: 0; 
+        pointer-events: none;
+        transform: translate(-50%, 50%);
+    }
+    
+    .signup-form > div.active{
+        opacity: 1; 
+        pointer-events: all; 
+        transform: translate(-50%, -50%);
+    }
+    
+    /* Shake the form */
 
-    .footer {
+    @keyframes shake{
+        0%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        } 
+        50%{
+            transform: translate(-50%, -50%) rotate(10deg)
+        }
+        100%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        }
+    
+    }
+
+    .main-container .footer {
         grid-column: span 13;
-        grid-row: 6;
     }
 
     .footer p {
-        margin-top: 100px;
+        top: -15%;
         text-align: center;
-        font-size: 23px;
+        font-size: 15px;
         font-weight: bold;
         color: #fff;
-
     }
 
-}
+} 
+
+
+
+
+
+
 
 /* Small mobile phone */
 
@@ -608,12 +545,7 @@ body {
     }
 
     .main-container {
-        background: url('../images/car1.jpg') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        min-height: 670px;
+        height: 600px;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         height: auto;
@@ -631,174 +563,140 @@ body {
         box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
     }
 
-    .header .logo {
+    .logo{
         display: flex;
-        width: 11%;
-        height: inherit;
+        flex-direction: row;
+        width: 15%;
+        margin-left: 10px; 
+    }  
 
+    .logo i{
+        margin: 20px 0 0 0;
+        padding-right: 4px;
     }
 
-    .header i {
-        margin: 20px;
-        font-size: 25px;
-
+    .logo h3 {
+        font-size: 14px;
+        margin-top: 40%;
     }
+
 
     .register-buttons {
         display: flex;
-        margin-top: 10px;
-        margin-left: 42%;
+        margin-top: 5px;
+        margin-left: 32%;
         justify-content: space-between;
         width: 20%;
-        font-family: 'Ubuntu', sans-serif;
-
-
+        font-family: 'Monsterat', 'Ubuntu', sans-serif;
     }
 
     .register-buttons a button {
         cursor: pointer;
-        margin: 8px auto;
+        margin: 15px auto;
         padding: 6px;
         width: 70px;
         border: none;
         color: #fff;
-        background: #013243;
+        background: #008000;
         font-size: 15px;
         border-radius: 5px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
-
     }
 
-
-    #auto-mart {
-        color: #013243;
-        margin: 0;
-    }
-
-    #adminLogin {
+    #admin-dash{
         position: absolute;
-        margin-top: -17px;
-        margin-left: 70px;
-        height: 78px;
-
+        margin: 15px 0 0 10px;
     }
 
-    #adminLogin:hover {
-        color: #013243;
+    #free-mentors{
+        color: #008000;
+        margin: 0;
+        padding-left: 5px;
     }
 
-    #adminLogin i {
-        margin-top: 22px;
+
+    .signup-form {
+        height: 80vh; 
         display: flex;
     }
 
-
-    #adminLogin p {
-        margin-top: 0;
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 15px;
-        margin-top: 11px;
-        padding: 2px;
-
-    }
- 
-
-    .customer-care {
-        width: 60%;
+    .signup-form h1 {
+        top: 30%;
+        left: 38%;
+        margin-bottom: -80px;
+        font-weight: 100px;
+        font-size: 25px;
+        color: #fff;
         position: absolute;
-        margin: 10% 20% auto;
     }
 
-
-    @keyframes BackgroundGradient {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 50% 100%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
+    .signup-form > div {
+        position: absolute; 
+        top: 50%; 
+        left: 48%; 
+        transform: translate(-50%, -50%); 
+        background: #fff; 
+        height: 50px; 
+        width: 250px;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-radius: 5px; 
+        transition: all 0.5s ease;
     }
 
-    .customer-care p {
-        text-align: center;
-        padding: 30px;
-        background: linear-gradient(132deg, blue, #fff, blue);
-        background-size: 500% 500%;
-        animation: BackgroundGradient 20s ease infinite;
-        border-radius: 6px;
-    }
-
-
-    .content-container form {
-        width: 300px;
-        margin: 60% 5%;
-        height: 470px;
-        background: #013243;
-        opacity: 0.8;
-        padding: 15px;
-        border-radius: 6px;
-    }
-
-    .content-container form >input {
-        margin: auto;
-        display: block;
-        padding: 7px;
-        width: 40%;
-        -webkit-transition: width .35s ease-in-out;
-        transition: width .35s ease-in-out;
-        margin: 35px auto;
-        border-radius: 20px;
-        outline: none;
-        border: 2px solid #fff;
-        background: none;
-        text-align: center;
-        color: #fff;
-
-    }
-
-    .content-container form >input:focus {
-        width: 50%;
-
-    }
-
-    form h3 {
-        text-align: center;
-        color: #fff;
-    }
-
-    form button {
+    .signup-form > div > i{
+        padding: 10px;
         cursor: pointer;
-        margin: 10px 90px auto;
-        width: 55%;
-        padding: 7px;
-        border-radius: 20px;
-        outline: none;
-        border: 2px solid #fff;
-        background: #000;
-        text-align: center;
-        color: #fff;
-        font-weight: bold;
-
+        color: #008000;
     }
 
+    .signup-form > div > input {
+        background: none; 
+        border: none;
+        flex: 1;
+        height: 100%;
+        outline: none;
+    }
+    
+    .signup-form > div.inactive{
+        opacity: 0; 
+        pointer-events: none;
+        transform: translate(-50%, 50%);
+    }
+    
+    .signup-form > div.active{
+        opacity: 1; 
+        pointer-events: all; 
+        transform: translate(-50%, -50%);
+    }
+    
+    /* Shake the form */
 
-    .footer {
+    @keyframes shake{
+        0%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        } 
+        50%{
+            transform: translate(-50%, -50%) rotate(10deg)
+        }
+        100%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        }
+    
+    }
+
+    .main-container .footer {
         grid-column: span 13;
-        grid-row: 6;
     }
 
     .footer p {
-        margin-top: 100px;
+        top: -15%;
         text-align: center;
-        font-size: 23px;
+        font-size: 15px;
         font-weight: bold;
         color: #fff;
-
     }
+
 
 }

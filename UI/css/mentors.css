@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+    background: rgba(220, 220, 220, 0.9);
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
+    padding: 0; 
+    margin: 0;
+    transition: background 0.5s ease; 
+}
+
+
+
+/* Desktop screen */
+
+@media screen and (min-width: 1224px) and (orientation: landscape){
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .main-container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        height: auto;
+        overflow: hidden;
+    }
+
+    .header {
+        display: flex;
+        background: #fff;
+        grid-column: span 13;
+        grid-row: 1;
+        height: 60px;
+        position: sticky;
+        border-bottom: 1px solid #DBE0E4;
+        box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
+        font-family: 'Montserrat', 'Ubuntu' sans-serif;
+    }
+
+
+    .header .logo {
+        display: flex;
+        width: 11%;
+        height: inherit;
+
+    }
+
+    .header i {
+        margin: 20px;
+        font-size: 25px;
+
+    }
+
+    .register-buttons {
+        margin-left: 65%;
+        width: 80%;
+    }
+
+    .register-buttons a button {
+        cursor: pointer;
+        color: #fff;
+        margin: 15px 10px;
+        padding: 7px;
+        width: 40%;
+        padding: 2;
+        border: none;
+        background: #008000;
+        font-size: 15px;
+        border-radius: 5px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
+    }
+
+    #admin-dash{
+        position: absolute;
+        margin-bottom: 40px;
+        width: 11%;
+        padding: 10px 0 0 -4px; 
+    }
+
+    #adminLogin:hover {
+        color: #013243;
+    }
+
+    #adminLogin i {
+        margin-top: 30px;
+        display: flex;
+    }
+
+    #free-mentors{
+        color: #008000	;
+        margin: 0;
+        padding-left: 5px;
+    }
+
+    .content-container {
+        grid-column: 1/13;
+        grid-row: 2/6;
+        position: relative;
+
+    }
+
+
+    .main-container .footer {
+        grid-column: span 13;
+        margin-top: -6%;
+    }
+
+    .footer p {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #000;
+    }
+}
