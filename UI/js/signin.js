@@ -49,5 +49,8 @@ const nextField = (parentDiv, nextForm) =>{
     nextForm.classList.add('active');
 }
 
-
 animatedForm();
+
+formValidator = () => {
+    window.location.assign('./mentors.html');
+}
