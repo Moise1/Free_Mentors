@@ -531,10 +531,6 @@ body {
 
 
 
-
-
-
-
 /* Small mobile phone */
 
 @media only screen and (min-width: 300px) and (orientation: portrait){
@@ -688,10 +684,11 @@ body {
 
     .main-container .footer {
         grid-column: span 13;
+        margin-top: -18.5%;
     }
 
     .footer p {
-        top: -15%;
+      
         text-align: center;
         font-size: 15px;
         font-weight: bold;
