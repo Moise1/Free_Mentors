@@ -188,7 +188,7 @@ body {
 
 
 
-@media only screen and (max-width: 700px) and (orientation: landscape){
+@media only screen and (max-width: 1024px) and (orientation: landscape){
 
     a {
         text-decoration: none;
@@ -255,15 +255,7 @@ body {
         padding: 10px 0 0 -4px; 
     }
 
-    #adminLogin p {
-        margin-top: 0;
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 15px;
-        margin-top: 11px;
-        padding: 2px;
-    }
-
-
+    
     #free-mentors{
         color: #008000	;
         margin-top: -20px;
@@ -416,7 +408,7 @@ body {
         margin-left: 32%;
         justify-content: space-between;
         width: 20%;
-        font-family: 'Monsterat', 'Ubuntu', sans-serif;
+        font-family: 'Montseratt', 'Ubuntu', sans-serif;
     }
 
     .register-buttons a button {

@@ -112,3 +112,275 @@ body {
         color: #000;
     }
 }
+
+
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .main-container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        height: auto;
+        overflow: hidden;
+    }
+
+    .header {
+        display: flex;
+        background: #fff;
+        grid-column: span 13;
+        grid-row: 1;
+        height: 60px;
+        position: sticky;
+        border-bottom: 1px solid #DBE0E4;
+        box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
+    }
+
+
+    .header .logo {
+        display: flex;
+        width: 11%;
+        height: inherit;
+
+    }
+
+    .header i {
+        margin: 20px;
+        font-size: 25px;
+    }
+
+    .register-buttons {
+        margin-left: 60%;
+        width: 12%;
+        font-family: 'Montserrat', 'Ubuntu', sans-serif;
+
+    }
+
+
+    .register-buttons a button {
+        cursor: pointer;
+        color: #fff;
+        margin: 15px 10px;
+        width: 70%;
+        padding: 10px;
+        border: none;
+        background: #008000;
+        font-size: 15px;
+        border-radius: 5px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
+    }
+
+    #admin-dash{
+        position: absolute;
+        margin-bottom: 40px;
+        width: 11%;
+        padding: 10px 0 0 -4px; 
+    }
+
+    #adminLogin p {
+        margin-top: 0;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 15px;
+        margin-top: 11px;
+        padding: 2px;
+    }
+
+
+    #free-mentors{
+        color: #008000	;
+        margin-top: -20px;
+        padding-left: 5px;
+    } 
+
+    .content-container {
+        grid-column: 1/13;
+        grid-row: 2/6;
+        position: relative;
+    }
+
+
+    .signup-form {
+        height: 80vh; 
+        display: flex;
+    }
+
+
+    .signup-form h1 {
+        top: 30%;
+        left: 45%;
+        margin-bottom: -80px;
+        font-weight: 100px;
+        font-size: 25px;
+        color: #fff;
+        position: absolute;
+    }
+
+
+    .signup-form > div {
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        background: #fff; 
+        height: 50px; 
+        width: 400px;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-radius: 5px; 
+        transition: all 0.5s ease;
+    }
+
+    .signup-form > div > i{
+        padding: 10px;
+        cursor: pointer;
+        color: #008000;
+    }
+
+    .signup-form > div > input {
+        background: none; 
+        border: none;
+        flex: 1;
+        height: 100%;
+        outline: none;
+    }
+    
+    .signup-form > div.inactive{
+        opacity: 0; 
+        pointer-events: none;
+        transform: translate(-50%, 50%);
+    }
+    
+    .signup-form > div.active{
+        opacity: 1; 
+        pointer-events: all; 
+        transform: translate(-50%, -50%);
+    }
+    
+    /* Shake the form */
+
+    @keyframes shake{
+        0%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        } 
+        50%{
+            transform: translate(-50%, -50%) rotate(10deg)
+        }
+        100%{
+            transform: translate(-50%, -50%) rotate(0deg)
+        }
+    
+    }
+
+    .main-container .footer {
+        grid-column: span 13;
+        margin-top: -6%;
+    }
+
+    .footer p {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #000;
+    }
+}
+
+/* Small mobile screen */ 
+
+@media only screen and (min-width: 300px) and (orientation: portrait){
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .main-container {
+        height: 50px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        height: auto;
+        overflow: hidden;
+    }
+
+    .header {
+        display: flex;
+        background: #fff;
+        grid-column: span 13;
+        grid-row: 1;
+        height: 60px;
+        position: sticky;
+        border-bottom: 1px solid #DBE0E4;
+        box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
+    }
+
+    .logo{
+        display: flex;
+        flex-direction: row;
+        width: 15%;
+        margin-left: 10px; 
+    }  
+
+    .logo i{
+        margin: 20px 0 0 0;
+        padding-right: 4px;
+    }
+
+    .logo h3 {
+        font-size: 14px;
+        margin-top: 40%;
+    }
+
+
+    .register-buttons {
+        display: flex;
+        margin-top: 5px;
+        margin-left: 32%;
+        justify-content: space-between;
+        width: 20%;
+        font-family: 'Montseratt', 'Ubuntu', sans-serif;
+    }
+
+    .register-buttons a button {
+        cursor: pointer;
+        margin: 15px auto;
+        padding: 6px;
+        width: 70px;
+        border: none;
+        color: #fff;
+        background: #008000;
+        font-size: 15px;
+        border-radius: 5px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
+    }
+
+    #admin-dash{
+        position: absolute;
+        margin: 15px 0 0 10px;
+    }
+
+    #free-mentors{
+        color: #008000;
+        margin: 0;
+        padding-left: 5px;
+    }
+
+
+
+    .main-container .footer {
+        grid-column: span 13;
+        margin-top: -20%;
+    }
+
+    .footer p {
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #000;
+    }
+
+}
