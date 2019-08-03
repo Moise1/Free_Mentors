@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+    background: rgba(220, 220, 220, 0.9);
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
+    padding: 0;
+    margin: 0;
+    transition: background 0.5s ease;
+}
+
+
+
+/* Desktop screen */
+
+@media screen and (min-width: 1224px) and (orientation: landscape) {
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .main-container {
+        height: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .header {
+        display: flex;
+        background: #fff;
+        grid-column: span 13;
+        grid-row: 1;
+        height: 60px;
+        position: sticky;
+        border-bottom: 1px solid #DBE0E4;
+        box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
+        font-family: 'Montserrat', 'Ubuntu'sans-serif;
+    }
+
+
+    .header .logo {
+        display: flex;
+        width: 11%;
+        height: inherit;
+
+    }
+
+    .header i {
+        margin: 20px;
+        font-size: 25px;
+
+    }
+
+    .register-buttons {
+        margin-left: 65%;
+        width: 80%;
+    }
+
+    .register-buttons a button {
+        cursor: pointer;
+        color: #fff;
+        margin: 15px 10px;
+        padding: 7px;
+        width: 40%;
+        padding: 2;
+        border: none;
+        background: #008000;
+        font-size: 15px;
+        border-radius: 5px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
+    }
+
+    #admin-dash {
+        position: absolute;
+        margin-bottom: 40px;
+        width: 11%;
+        padding: 10px 0 0 -4px;
+    }
+
+
+
+    #free-mentors {
+        color: #008000;
+        margin: 0;
+        padding-left: 5px;
+    }
+
+    .content-container {
+        grid-column: span 13;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10;
+    }
+
+    .mentor-info {
+        position: relative;
+    }
+
+    .mentor-info .reach-btn{
+        background: #000;
+        padding: 10px;
+        margin-bottom: 20px;
+        color: #fff;
+        border: 1px solid #000;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .mentor-info .reach-btn:focus{
+        outline: none;
+    }
+
+    .show-more {
+        color: #008000;
+    }
+
+    .main-container .footer {
+        grid-column: span 13;
+        margin-top: -6%;
+    }
+
+    .main-container h2 {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .content-container {
+        margin: 30px 60px auto;
+    }
+
+   
+    .footer p {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #000;
+    }
+}
