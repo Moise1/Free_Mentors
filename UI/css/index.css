@@ -3,7 +3,7 @@
 body {
     background: rgba(220, 220, 220, 0.5);
     font-family: 'Montserrat', 'Ubuntu', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/mentor1.jpg') no-repeat center center fixed ;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://res.cloudinary.com/mo1/image/upload/v1564582327/mentor1_qavkpo.jpg') no-repeat center center fixed ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -225,7 +225,7 @@ body {
     }
 
     .register-buttons {
-        margin-left: 60%;
+        margin-left: 55%;
         width: 13%;
         font-family: 'Montserrat', 'Ubuntu', sans-serif;
 
@@ -237,7 +237,7 @@ body {
         color: #fff;
         margin: 15px 10px;
         padding: 7px;
-        width: 40%;
+        width: 70%;
         padding: 2;
         border: none;
         background: #008000;
