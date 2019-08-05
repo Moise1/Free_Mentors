@@ -127,7 +127,9 @@ body {
 
     .content-container {
         margin: 30px 60px auto;
+        position: relative;
     }
+
 
    
     .footer p {

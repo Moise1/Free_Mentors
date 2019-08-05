@@ -182,7 +182,7 @@ body {
     }
 
     [type="checkbox"]:checked~ul {
-        max-height: 3   00px;
+        max-height: 300px;
     }
 
     [type="checkbox"]:checked+label {
