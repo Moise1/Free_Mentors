@@ -100,10 +100,12 @@
                             <td class="data">A 44-year old husband and father of 2.</td>
                             <td class="data">Retired professional basketball player</td>
                             <td class="data">5 years</td>
-                            <td class="data">
-                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)"></i>
+                            <td class="data delete">
+                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)" title="delete"></i>
                             </td>
-                            <td class="data"></td>
+                            <td class="data update">
+                                <i type="icon"  class="fas fa-pencil-alt" title="edit"></i>
+                            </td>
                         </tr>
 
 
@@ -115,10 +117,12 @@
                             <td class="data">A 53-year old husband and enthusiastic writer</td>
                             <td class="data">Professional Economist</td>
                             <td class="data">26years </td>
-                            <td class="data">
-                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)"></i>
+                            <td class="data delete">
+                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)" title="delete"></i>
                             </td>
-                            <td class="data"></td>
+                            <td class="data update">
+                                <i type="icon"  class="fas fa-pencil-alt" title="edit"></i>
+                            </td>
                         </tr>
 
                         <tr class="data-head" data-id="3" data-toggle="modal" data-target="#accountModal">
@@ -129,13 +133,15 @@
                             <td class="data">Born and raised in Kenya. She is now 30 years-old </td>
                             <td class="data">Professional action movies actress</td>
                             <td class="data">10 year</td>
-                            <td class="data">
-                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)"></i>
+                            <td class="data delete">
+                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)" title="delete"></i>
                             </td>
-                            <td class="data"></td>
+                            <td class="data update">
+                                <i type="icon"  class="fas fa-pencil-alt" title="edit"></i>
+                            </td>
                         </tr>
 
-                        <tr class="data-head" data-id="3" data-toggle="modal" data-target="#accountModal">
+                        <tr class="data-head" data-id="4" data-toggle="modal" data-target="#accountModal">
                             <td class="data">
                                 <img src="https://res.cloudinary.com/mo1/image/upload/v1564585032/ronaldo_tgaotu.jpg" alt="">
                             </td>
@@ -143,10 +149,28 @@
                             <td class="data">A 35-year old husband, father and fashion model</td>
                             <td class="data">Professional footbal player</td>
                             <td class="data">15 years</td>
-                            <td class="data">
-                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)"></i>
+                            <td class="data delete">
+                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)" title="delete"></i>
                             </td>
-                            <td class="data"></td>
+                            <td class="data update">
+                                <i type="icon"  class="fas fa-pencil-alt" title="edit"></i>
+                            </td>
+                        </tr>
+
+                        <tr class="data-head" data-id="5" data-toggle="modal" data-target="#accountModal">
+                            <td class="data">
+                                <img src="https://res.cloudinary.com/mo1/image/upload/v1565083512/mentee_qubvql.jpg" alt="">
+                            </td>
+                            <td class="data">Man Young</td>
+                            <td class="data">A 20 year-old young man</td>
+                            <td class="data">University student</td>
+                            <td class="data">None</td>
+                            <td class="data delete">
+                                <i type="icon"  class="fas fa-trash" onclick="deleteRow(this)" title="delete"></i>
+                            </td>
+                            <td class="data update">
+                                <i type="icon"  class="fas fa-pencil-alt" title="edit" onclick="document.getElementById('form').style.display='block'"></i>
+                            </td>
                         </tr>
 
 
@@ -154,10 +178,41 @@
                 </table>
             </div>
         </main>
+
+        <!-- Update user form -->
+
+        <div class="form-container" id="form">
+            <span class="close" title="Close Form" id="closebtn">&times;</span>
+
+            <form action="" class="form-content">
+                <div class="user-image">
+                        <img src="https://res.cloudinary.com/mo1/image/upload/v1565083512/mentee_qubvql.jpg" alt="">
+                </div>
+                <ul class="user-details">
+                    <li>Name: Man Young</li>
+                    <li>Bio: A 20 year-old young man</li>
+                    <li>Occupation: University student</li>
+                    <li>Expertise: None</li>
+                    <li for="status"> Status
+                        <select name="user-status" id="">
+                            <option value="client">Mentee</option>
+                            <option value="mentor">Mentor</option>
+                        </select>
+                    </li>
+                </ul>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="button" class="editbtn">Save</button>
+                </div>
+            </form>
+
+        </div>
         <footer class="footer">
             <p>&copy; Free Mentors 2019</p>
         </footer>
     </div>
-    <script type="text/javascript" src="../js/admin.js" ></script>
+    <script type="text/javascript" src="../js/admin_board.js" ></script>
+
 </body>
 </html>
