@@ -16,11 +16,15 @@ window.addEventListener('load', ()=>{
             style="
             border-radius: 10px;
             height: 310px;
+            margin-bottom: 10%;
+
             />
-            <ul style="list-style: none">
+            <ul style="list-style-type:none;">
+
+            <li><strong>Name: </strong> Kobe Bryant</li><br>
             <li><strong>Bio: </strong> A 44-year old husband and father of 2.</li><br>
             <li><strong>Occupation: </strong> Retired professional basketball player</li><br>
-            <li><strong>Expertise: </strong> 5 years</li><br>
+            <li><strong>Expertise: </strong> 20 years</li><br>
                 <button style="
                 background: #000;
                 padding: 10px;
@@ -33,7 +37,7 @@ window.addEventListener('load', ()=>{
             </ul>
         </div>`
         }else if(mobileScreen.matches){
-            selectedMentor.style.marginLeft = '-20%'; 
+            selectedMentor.style.marginLeft = '-10%'; 
 
         selectedMentor.innerHTML = `
         <div>
@@ -43,12 +47,14 @@ window.addEventListener('load', ()=>{
             border-radius: 10px;
             height: 200px;
             width: 95%;
+            margin-bottom: 10%;
 
             />
-            <ul style="list-style: none; left: 80%">
+            <ul style="list-style-type: none; left: 80%">
+            <li><strong>Name: </strong> Kobe Bryant</li><br>
             <li><strong>Bio: </strong> A 44-year old husband and father of 2.</li><br>
             <li><strong>Occupation: </strong> Retired professional basketball player</li><br>
-            <li><strong>Expertise: </strong> 5 years</li><br>
+            <li><strong>Expertise: </strong> 20 years</li><br>
                 <button style="
                 background: #000;
                 padding: 10px;
@@ -61,6 +67,5 @@ window.addEventListener('load', ()=>{
             </ul>
         </div>`
         }
-}); 
-
+});
 

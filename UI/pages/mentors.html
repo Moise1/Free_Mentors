@@ -26,53 +26,83 @@
             <div class="register-buttons">
                 <a href="/"><button class="button">Back</button></a>
                 <a href="/"><button class="button" id="admin-dash">Log Out</button></a>
+                <a class="notification" href="./requests.html">
+                    <img src="../images/notification.png" alt="">
+                    <span class="bell-title"> You have unread requests</span>
+                </a>
             </div>
         </header>
 
+        <!-- For mobile screens -->
+
+        <nav role="navigation">
+
+            <div id="menuToggle">
+                <input type="checkbox" id="toggleInput" />
+
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <ul id="menu">
+                    <li class="item"><a href="./requests.html">Notifications</a></li>
+                    <li class="item"><a href="./mentors.html">Back</a></li>
+                    <li class="item"><a href="/">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
         <h2>All Mentors Here For You</h2>
         <main class="content-container">
-            
+
             <div class="card">
-                <img src="https://res.cloudinary.com/mo1/image/upload/v1564584621/kobe_lq48jt.jpg"  id="mentorPicOne" alt="">
-                <strong><p>Kobe Bryant </p></strong>
+                <img src="https://res.cloudinary.com/mo1/image/upload/v1564584621/kobe_lq48jt.jpg" id="mentorPicOne"
+                    alt="">
+                <strong>
+                    <p>Kobe Bryant </p>
+                </strong>
                 <div class="mentor-info">
-                        <input type="checkbox" id="check_id"> 
-                        <label for="check_id"></label>
+                    <input type="checkbox" id="check_id">
+                    <label for="check_id"></label>
                     <ul>
                         <li><strong>Bio: </strong> A 44-year old husband and father of 2.</li><br>
                         <li><strong>Occupation: </strong> Retired professional basketball player</li><br>
                         <li><strong>Expertise: </strong> 5 years</li><br>
-                        <button class="reach-btn"  onclick="openPage()" id="reachOne">Reach Out</button>
+                        <button class="reach-btn" onclick="openPage()" id="reachOne">Reach Out</button>
                     </ul>
-        
+
                 </div>
             </div>
 
             <div class="card">
                 <img src="https://res.cloudinary.com/mo1/image/upload/v1564584373/kiyosaki_ccrd22.jpg" alt="">
-                <strong><p>Robert Kiyosaki</p></strong>
+                <strong>
+                    <p>Robert Kiyosaki</p>
+                </strong>
                 <div class="mentor-info">
-                        <input type="checkbox" id="check_id1"> 
-                        <label for="check_id1"></label>
+                    <input type="checkbox" id="check_id1">
+                    <label for="check_id1"></label>
                     <ul>
                         <li><strong>Bio: </strong> A 53-year old husband and enthusiastic writer</li><br>
                         <li> <strong>Occupation: </strong> Professional Economist</li><br>
                         <li><strong>Expertise: </strong> 5 years</li><br>
-                        <button class="reach-btn" type="button" id="reachTwo" > Reach Out</button>
+                        <button class="reach-btn" type="button" id="reachTwo"> Reach Out</button>
                     </ul>
                 </div>
             </div>
             <div class="card">
                 <img src="https://res.cloudinary.com/mo1/image/upload/v1564614348/lupita_hehsru.jpg" alt="">
-                <strong><p>Lupita Nyo'ongo</p></strong>
+                <strong>
+                    <p>Lupita Nyo'ongo</p>
+                </strong>
                 <div class="mentor-info">
-                        <input type="checkbox" id="check_id2"> 
-                        <label for="check_id2"></label>
+                    <input type="checkbox" id="check_id2">
+                    <label for="check_id2"></label>
                     <ul>
                         <li><strong>Bio: </strong> Born and raised in Kenya. She is now 30 years-old </li><br>
                         <li><strong>Occupation: </strong> Professional Actress</li><br>
                         <li><strong>Expertise: </strong>5 years</li><br>
-                        <button class="reach-btn" type="button" id="reachThree" > Reach Out</button>
+                        <button class="reach-btn" type="button" id="reachThree"> Reach Out</button>
 
                     </ul>
                 </div>
@@ -80,11 +110,13 @@
 
             <div class="card">
                 <img src="https://res.cloudinary.com/mo1/image/upload/v1564585032/ronaldo_tgaotu.jpg" alt="">
-                <strong><p>Christiano Ronaldo</p></strong>
-                
+                <strong>
+                    <p>Christiano Ronaldo</p>
+                </strong>
+
                 <div class="mentor-info">
-                        <input type="checkbox" id="check_id3"> 
-                        <label for="check_id3"></label>
+                    <input type="checkbox" id="check_id3">
+                    <label for="check_id3"></label>
                     <ul>
                         <li><strong>Bio: </strong>A 35-year old husband, father and fashion model </li><br>
                         <li><strong>Occupation: </strong> Professional football player</li><br>
@@ -94,12 +126,15 @@
                     </ul>
                 </div>
             </div>
+
             <div class="card">
                 <img src="https://res.cloudinary.com/mo1/image/upload/v1564614369/keys_kbcooz.webp" alt="">
-                <strong><p>Alicia Keys</p></strong>
+                <strong>
+                    <p>Alicia Keys</p>
+                </strong>
                 <div class="mentor-info">
-                        <input type="checkbox" id="check_id4"> 
-                        <label for="check_id4"></label>
+                    <input type="checkbox" id="check_id4">
+                    <label for="check_id4"></label>
                     <ul>
                         <li> <strong>Bio: </strong>A 40-year old wife and mother</li><br>
                         <li><strong>Occupation: </strong> Professional Singer </li><br>
@@ -111,15 +146,17 @@
             </div>
             <div class="card">
                 <img src="https://res.cloudinary.com/mo1/image/upload/v1564584633/kagame_g0gmpq.png" alt="">
-                <strong><p>Paul Kagame</p></strong>
+                <strong>
+                    <p>Paul Kagame</p>
+                </strong>
                 <div class="mentor-info">
-                        <input type="checkbox" id="check_id5"> 
-                        <label for="check_id5"></label>
+                    <input type="checkbox" id="check_id5">
+                    <label for="check_id5"></label>
                     <ul>
                         <li><strong>Bio: </strong> A husband, father and enthusiastic tenis player </li><br>
                         <li><strong>Occupation: </strong> President of Republic of Rwanda</li><br>
                         <li><strong>Expertise: </strong> 5 years </li><br>
-                        <button class="reach-btn" type="button" id="reachSix" > Reach Out</button>
+                        <button class="reach-btn" type="button" id="reachSix"> Reach Out</button>
                     </ul>
                 </div>
             </div>

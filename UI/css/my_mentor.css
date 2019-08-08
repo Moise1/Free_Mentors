@@ -73,7 +73,7 @@ body {
     #admin-dash {
         position: absolute;
         margin-bottom: 40px;
-        width: 11%;
+        width: 30%;
         padding: 10px 0 0 -4px;
     }
 
@@ -210,7 +210,6 @@ body {
         width: 22%;
         padding-right: 0;
     }
-
 
 
     #free-mentors {
