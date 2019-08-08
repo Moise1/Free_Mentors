@@ -1,5 +1,8 @@
 # Free_Mentors 
 
+Free Mentors is a social initiative where accomplished professionals become role models to
+young people to provide free mentorship sessions.
+
 ###  Required features for user: 
 
 * User(mentor or mentee)  can sign up .<br/>
@@ -7,8 +10,6 @@
 * User(mentee) can view all mentors.<br/>
 * User(mentee) can view a specific mentor<br/>
 * User(mentee) can create a mentorship session request with a mentor.<br/>
-* User(buyer) can make a car purchase order<br/>
-* User(buyer) can update a the price of a purchase order<br/>
 
 
 ###  Required features for a mentor: 
