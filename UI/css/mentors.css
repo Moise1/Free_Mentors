@@ -14,6 +14,11 @@ body {
 
 @media screen and (min-width: 1224px) and (orientation: landscape) {
 
+    nav {
+        display: none;
+    }
+
+
     a {
         text-decoration: none;
         color: #000;
@@ -52,17 +57,19 @@ body {
     }
 
     .register-buttons {
-        margin-left: 65%;
+        margin-left: 53%;
         width: 80%;
+        position: relative;
     }
 
     .register-buttons a button {
         cursor: pointer;
         color: #fff;
-        margin: 15px 10px;
+        margin: 15px 10px 0 50px;
         padding: 7px;
-        width: 40%;
-        padding: 2;
+        width: 30%;
+        right: 20%;
+        padding: 5px;
         border: none;
         background: #008000;
         font-size: 15px;
@@ -73,10 +80,9 @@ body {
     #admin-dash {
         position: absolute;
         margin-bottom: 40px;
-        width: 11%;
+        width: 30%;
         padding: 10px 0 0 -4px;
     }
-
 
 
     #free-mentors {
@@ -84,6 +90,49 @@ body {
         margin: 0;
         padding-left: 5px;
     }
+
+    .notification img{
+        width: 5%;
+        top: 25%;
+        left: 85%;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .bell-title {
+        visibility: hidden;
+        width: 160px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 90%;
+        left: 81%;
+        /* border: 2px solid red; */
+        margin-left: -60px;
+      }
+
+
+    .notification .bell-title::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+
+
+      .notification:hover .bell-title {
+        visibility: visible;
+      }
+
+
 
     .content-container {
         grid-column: span 13;
@@ -210,6 +259,12 @@ body {
 /* Tablet screen */ 
 
 @media only screen and (max-width: 1024px) and (orientation: landscape){
+
+    nav {
+        display: none;
+    }
+
+
     a {
         text-decoration: none;
         color: #000;
@@ -266,6 +321,47 @@ body {
         border-radius: 5px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
     }
+
+
+    .notification img{
+        width: 3%;
+        top: 25%;
+        left: 95%;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .bell-title {
+        visibility: hidden;
+        width: 160px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 90%;
+        left: 81%;
+        margin-left: -60px;
+      }
+
+
+    .notification .bell-title::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+
+
+      .notification:hover .bell-title {
+        visibility: visible;
+      }
 
     #admin-dash{
         position: absolute;
@@ -416,13 +512,17 @@ body {
 
 @media only screen and (min-width: 300px) and (orientation: portrait){
 
+    *{
+        outline: none;
+    }
+
     a {
         text-decoration: none;
         color: #000;
     }
 
     .main-container {
-        height: 50px;
+        height: 100%;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         height: auto;
@@ -458,31 +558,10 @@ body {
     }
 
 
-    .register-buttons {
-        display: flex;
-        margin-top: 5px;
-        margin-left: 32%;
-        justify-content: space-between;
-        width: 20%;
-        font-family: 'Montseratt', 'Ubuntu', sans-serif;
-    }
 
-    .register-buttons a button {
-        cursor: pointer;
-        margin: 15px auto;
-        padding: 6px;
-        width: 70px;
-        border: none;
-        color: #fff;
-        background: #008000;
-        font-size: 15px;
-        border-radius: 5px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
-    }
-
-    #admin-dash{
-        position: absolute;
-        margin: 15px 0 0 10px;
+    header .register-buttons,
+    .mentor {
+        display: none;
     }
 
     #free-mentors{
@@ -491,23 +570,130 @@ body {
         padding-left: 5px;
     }
 
-    .main-container {
+    /* Hamburger Menu */
+
+    #menuToggle {
+        display: block;
         position: relative;
+        top: -45px;
+        right: -250px;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
-    .main-container h2 {
+    #menuToggle input {
+        display: block;
+        width: 30px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+        -webkit-touch-callout: none;
+    }
 
-        margin: 70px 65px;
+
+    #menuToggle div {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #000;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            opacity 0.55s ease;
+    }
+
+
+    #menuToggle div:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    #menuToggle div:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    #menuToggle input:checked~div {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #fff;
+    }
+
+
+    #menuToggle input:checked~div:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    #menuToggle input:checked~div:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+
+    /* Slide it in from top right */
+
+    #menu {
+        position: absolute;
+        width: 300px;
+        margin: -100px 0 0 -200px;
+        padding: 0 35px 0 50px;
+        padding-top: 125px;
+        background: #008000;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        transform-origin: top right;
+        transform: translate(100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        border-radius: 7px;
+
+    }
+
+    #menu #me {
+        position: absolute;
+        display: inline;
+        top: 30%;
+        width: 10%;
+        left: 10%;
+
+    }
+
+    
+    #menu li {
+        padding: 10px;
+        margin-left: -20px;
+    }
+
+    #menu li a {
+        color: #fff;
+    }
+
+    #menuToggle input:checked~ul {
+        transform: none;
+    }
+
+
+    .main-container h2 {
+        margin: 70px 30px;
+        left: 40px;
         font-size: 15px;
         position: absolute;
+        text-align: center;
     }
 
     .content-container {
-        grid-column: span 13;
+        grid-column: 1/13;
         position: relative;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 10;
+        height: auto;
     }
     
     .mentor-info {
@@ -567,7 +753,7 @@ body {
         position: relative;
     }
 
-    [type="checkbox"] {
+    [type="checkbox"]:not(#toggleInput) {
         position: absolute;
         visibility: hidden;
     }
