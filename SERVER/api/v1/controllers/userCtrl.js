@@ -18,7 +18,7 @@ class User{
 
         if (error) return res
         .status(400)
-        .json(new ResponseHandler(404, null, error.details[0].message).result());
+        .json(new ResponseHandler(404, error.details[0].message, null).result());
 
 
         const id = users.length + 1;
@@ -57,22 +57,16 @@ class User{
             
             // Check whether the email is already taken. 
     
-            if(users.some(us => us.email === email)) return res.status(409).json({
-                status: 409, 
-                error: 'Sorry! Email already taken.'
-            }) 
-            users.push(newUser);
+            if(users.some(us => us.email === email)) 
+            return res
+            .status(409)
+            .json(new ResponseHandler(409, 'Sorry! Email already taken.', null).result()); 
 
+            users.push(newUser);
             Promise.all(users).then(async values => {
-                console.log(values);
                 return res 
                 .status(201) 
-                .json(new ResponseHandler(201, lodash.omit(values[values-1], 'User created successfully')).result());
-                // return res.status(201).json({
-                //     status: 201,
-                //     message: 'Successfully Signed Up!',
-                //     data: lodash.omit(values[values.length -1], ['password'])
-                // })
+                .json(new ResponseHandler(201, 'User created successfully', lodash.omit(values[values.length -1], ['password']) , null).result());
             });
 
         } catch (err) {

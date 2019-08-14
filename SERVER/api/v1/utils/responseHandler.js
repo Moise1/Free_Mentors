@@ -1,5 +1,5 @@
 class ResponseHandler{
-    constructor(status, data, error, message){
+    constructor(status, message,  data, error ){
         this.status = status, 
         this.data = data, 
         this.error = error, 

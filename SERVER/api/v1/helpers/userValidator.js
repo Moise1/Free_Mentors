@@ -5,7 +5,7 @@ const signUpFields = (user) => {
     const schema = {
         first_name: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         last_name: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
-        email: Joi.string().regex(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).email().required(),
+        email: Joi.string().email({ minDomainAtoms: 2 }).trim().required(),
         password: Joi.string().regex(/^\S+$/).min(3).max(255).required(), 
         address: Joi.string().min(3).max(255).required(), 
         bio: Joi.string().min(3).max(255).required(), 
