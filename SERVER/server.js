@@ -1,5 +1,5 @@
 import express from "express";  
-// import userRouter from "./api/v1/routes/userRouter";
+import userRouter from "./api/v1/routes/userRouter";
 
 
 const app = express(); 
@@ -7,13 +7,7 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-// app.use(userRouter);
-// app.use(adRouter);
-// app.use(orderRouter);
-// app.use(flagRouter);
-
-
-
+app.use(userRouter);
 
 
 app.get("/", (req, res) =>{
