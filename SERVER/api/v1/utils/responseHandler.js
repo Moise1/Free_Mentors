@@ -1,9 +1,9 @@
 class ResponseHandler{
     constructor(status, message,  data, error ){
         this.status = status, 
-        this.data = data, 
-        this.error = error, 
         this.message = message;
+        this.data = data, 
+        this.error = error 
     }
 
     result(){

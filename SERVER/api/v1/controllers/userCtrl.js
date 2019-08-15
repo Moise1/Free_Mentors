@@ -63,16 +63,68 @@ class User{
             .json(new ResponseHandler(409, 'Sorry! Email already taken.', null).result()); 
 
             users.push(newUser);
-            Promise.all(users).then(async values => {
+            Promise.all(users).then(values => {
                 return res 
                 .status(201) 
-                .json(new ResponseHandler(201, 'User created successfully', lodash.omit(values[values.length -1], ['password']) , null).result());
+                .json(new ResponseHandler(201, 'User created successfully', lodash.omit(values[values.length -1], ['password']), null).result());
             });
 
         } catch (err) {
             return res
             .status(500)
-            .json(new ResponseHandler(500, err, null, err.message).result());
+            .json(new ResponseHandler(500, err.message, null).result());
+        }
+    }  
+
+    static async userSignIn(req, res) {
+
+        const {
+            error
+        } = loginFields(req.body);
+
+        if (error) return res 
+        .status(400)
+        .json(new ResponseHandler(404, error.details[0].message, null).result());
+
+        try {
+            const {
+                email,
+                password
+            } = req.body;
+
+
+            Promise.all(users).then( async values => {
+
+                const userFinder = await values.find(user => user.email === email); 
+                
+                if (!userFinder) {
+                    return res
+                    .status(404) 
+                    .json(new ResponseHandler(404, `User with email ${email} is not found!`, null).result());
+                };
+
+                const matched = await decryptor.isSame(password, userFinder.password);
+                if (!matched) {
+                    return res
+                    .status(401) 
+                    .json(new ResponseHandler(401, 'Invalid Password', null).result());
+                }
+
+                const token = await tokenMan.tokenizer({
+                    id: userFinder.id,
+                    email: userFinder.email,
+                    is_admin: userFinder.is_admin,
+                });
+                return res
+                .header('Authorization', `Bearer ${token}`)
+                .status(200)
+                .json(new ResponseHandler(200, 'Successfully Signed In', lodash.omit(userFinder, ['password'])).result())
+            });
+
+        } catch (err) {
+            return res
+            .status(500)
+            .json(new ResponseHandler(500, err.message, null).result())
         }
     }
 }
