@@ -11,7 +11,7 @@ import ResponseHandler from '../utils/responseHandler';
 
 
 class User{
-    
+
     static async userSignUp(req, res){
         const {
             error
@@ -146,10 +146,9 @@ class User{
                 .json(new ResponseHandler(200, `User number ${req.params.id} successfully updated!`, lodash.omit(findUser, ['password'])).result())
 
         }catch(err){
-            return res.status(500).json({
-                status: 500, 
-                error: err.message
-            })
+            return res
+            .status(500)
+            .json(new ResponseHandler(500, err.message, null).result())
         }
         
     }
