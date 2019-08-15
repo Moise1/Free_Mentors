@@ -70,7 +70,6 @@ class User{
             });
 
         } catch (err) {
-            console.log('The error',err)
             return res
             .status(500)
             .json(new ResponseHandler(500, err.message, null).result());
@@ -95,7 +94,9 @@ class User{
 
 
             Promise.all(users).then( async values => {
-                const userFinder = values.find(user => user.email === email);
+
+                const userFinder = await values.find(user => user.email === email); 
+                
                 if (!userFinder) {
                     return res
                     .status(404) 
