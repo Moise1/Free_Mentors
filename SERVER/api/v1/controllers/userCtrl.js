@@ -11,6 +11,7 @@ import ResponseHandler from '../utils/responseHandler';
 
 
 class User{
+
     static async userSignUp(req, res){
         const {
             error
@@ -23,6 +24,7 @@ class User{
 
         const id = users.length + 1;
         const is_admin = false;
+        const is_mentor = false;
         const {
             first_name,
             last_name,
@@ -53,6 +55,7 @@ class User{
                 occupation: occupation, 
                 expertise: expertise,
                 is_admin: is_admin,
+                is_mentor: is_mentor
             }
             
             // Check whether the email is already taken. 
@@ -113,7 +116,8 @@ class User{
                 const token = await tokenMan.tokenizer({
                     id: userFinder.id,
                     email: userFinder.email,
-                    is_admin: userFinder.is_admin,
+                    is_admin: userFinder.is_admin, 
+                    is_mentor: userFinder.is_mentor
                 });
                 return res
                 .header('Authorization', `Bearer ${token}`)
@@ -126,6 +130,27 @@ class User{
             .status(500)
             .json(new ResponseHandler(500, err.message, null).result())
         }
+    }
+
+    static async updateUser(req, res){
+
+        const findUser = users.find(user => user.id === parseInt(req.params.id));
+        try{
+                if(!findUser) return res.
+                status(404)
+                .json(new ResponseHandler(404, `User number ${req.params.id} not found!`, null).result()); 
+                
+                findUser.is_mentor = Boolean(req.body.is_mentor === 'true');  
+                return res
+                .status(200)
+                .json(new ResponseHandler(200, `User number ${req.params.id} successfully updated!`, lodash.omit(findUser, ['password'])).result())
+
+        }catch(err){
+            return res
+            .status(500)
+            .json(new ResponseHandler(500, err.message, null).result())
+        }
+        
     }
 }
 
