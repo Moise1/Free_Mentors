@@ -9,8 +9,8 @@ const signUpFields = (user) => {
         password: Joi.string().regex(/^\S+$/).min(3).max(255).required(), 
         address: Joi.string().min(3).max(255).required(), 
         bio: Joi.string().min(3).max(255).required(), 
-        occupation: Joi.string().min(3).max(255).required(), 
-        expertise: Joi.string().min(3).max(255).required()
+        occupation: Joi.string().required(), 
+        expertise: Joi.string().required()
     };
 
     const options = {
