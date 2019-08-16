@@ -24,7 +24,6 @@ class User{
 
         const id = users.length + 1;
         const is_admin = false;
-        const is_mentor = false;
         const {
             first_name,
             last_name,
@@ -54,8 +53,8 @@ class User{
                 bio: bio, 
                 occupation: occupation, 
                 expertise: expertise,
-                is_admin: is_admin,
-                is_mentor: is_mentor
+                is_admin: is_admin, 
+                is_mentor: occupation  ===  'N/A' ||  expertise  ===  'N/A' ? false : true
             }
             
             // Check whether the email is already taken. 
@@ -136,11 +135,11 @@ class User{
 
         const findUser = users.find(user => user.id === parseInt(req.params.id));
         try{
-                if(!findUser) return res.
-                status(404)
+                if(!findUser) return res
+                .status(404)
                 .json(new ResponseHandler(404, `User number ${req.params.id} not found!`, null).result()); 
                 
-                findUser.is_mentor = Boolean(req.body.is_mentor === 'true');  
+                findUser.is_mentor = Boolean(req.body);  
                 return res
                 .status(200)
                 .json(new ResponseHandler(200, `User number ${req.params.id} successfully updated!`, lodash.omit(findUser, ['password'])).result())

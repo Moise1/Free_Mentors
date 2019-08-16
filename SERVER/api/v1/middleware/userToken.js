@@ -1,17 +1,18 @@
 import jwt from "jsonwebtoken";
-import keys from "../config/config";
+import devKeys from "../config/config";
 
 
 const tokenExists = (req, res, next) => {
     if (req.headers.authorization === undefined) return res.status(400).json({
         status: 400,
         error: "Sorry, no token provided!"
+
     });
     next();
 };
 
 const userAccess = (req, res, next) => {
-
+    
     const token = req.headers.authorization.split(" ")[1];
     if (!token) return res.status(401).json({
         status: 401,
@@ -19,7 +20,7 @@ const userAccess = (req, res, next) => {
     });
     
     try {
-        const decryptedToken = jwt.verify(token, keys.SECRET_OR_PUBLIC_KEY);
+        const decryptedToken = jwt.verify(token, devKeys.SECRET_OR_PUBLIC_KEY);
         req.user = decryptedToken;
         next();
 

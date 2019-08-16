@@ -1,5 +1,6 @@
 import express from "express";  
 import userRouter from "./api/v1/routes/userRouter";
+import mentorRouter from './api/v1/routes/mentorRouter';
 
 
 const app = express(); 
@@ -8,6 +9,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.use(userRouter);
+app.use(mentorRouter);
 
 
 app.get("/", (req, res) =>{
