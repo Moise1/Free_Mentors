@@ -33,6 +33,28 @@ class Mentor{
         }
        
     }
+
+    static async singleMentor(req, res){
+
+        const theMentor = mentors.find(m => m.id === parseInt(req.params.id)); 
+
+        try {
+
+            if(!theMentor) return res 
+            .status(404) 
+            .json(new ResponseHandler(404, `Mentor number ${req.params.id} not found`, null).result());
+            
+            return res 
+            .status(200) 
+            .json(new ResponseHandler(200, 'Your mentor', theMentor, null).result());
+
+        }catch(err){
+            return res 
+            .status(500) 
+            .json(new ResponseHandler(500, err.message, null).result())
+        }
+
+    }
 }
 
 
