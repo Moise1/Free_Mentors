@@ -65,6 +65,7 @@ class User{
             .json(new ResponseHandler(409, 'Sorry! Email already taken.', null).result()); 
 
             users.push(newUser);
+            
             Promise.all(users).then(values => {
                 return res 
                 .status(201) 
