@@ -1,4 +1,6 @@
+import lodash from 'lodash'; 
 class ResponseHandler{
+
     constructor(status, message,  data, error ){
         this.status = status, 
         this.message = message;
@@ -11,9 +13,9 @@ class ResponseHandler{
         finalRes.status = this.status; 
         finalRes.message = this.message; 
         if(this.data !== null){
-          finalRes.data = this.data; 
+          finalRes.data = this.data;
         } 
-
+        
         if(this.error !== null){
             finalRes.error = this.error; 
         }
