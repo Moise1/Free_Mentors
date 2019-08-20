@@ -68,8 +68,7 @@ class MentorshipSession {
                     .status(404)
                     .json(new ResponseHandler(404, `Mentorship sesssion number ${req.params.sessionId} not found`, null).result());
 
-                theSession.status = req.body.status;
-
+                theSession.status = req.body.status; 
                 return res
                     .status(200)
                     .json(new ResponseHandler(200, 'Mentorship session request successfully updated!', theSession, null).result())
