@@ -2,8 +2,8 @@ import sessions from '../models/sessionModel';
 import users from '../models/userModel';
 import ResponseHandler from '../utils/responseHandler';
 import sessionFields from '../helpers/sessionValidator';
+import reviewFields from '../helpers/reviewValidator';
 import renamer from '../utils/renamer';
-import { type } from 'os';
 
 class MentorshipSession {
 
@@ -79,6 +79,47 @@ class MentorshipSession {
                 .json(new ResponseHandler(500, err.message, null).result())
         }
 
+    }
+
+
+    static async reviewMentor(req, res) {
+        const {
+            error
+        } = reviewFields(req.body);
+
+        if (error) return res
+            .status(400)
+            .json(new ResponseHandler(404, error.details[0].message, null).result());
+
+        const {score, remark} = req.body; 
+        const mentee = req.user;
+
+        const theSession = sessions.find(s => s.sessionId === parseInt(req.params.sessionId));
+
+        if(!theSession) return res 
+        .status(404) 
+        .json(new ResponseHandler(404, `Sorry, sesssion number ${req.params.sessionId} not found`, null).result())
+        try{
+
+            const newReview = {
+                sessionId: theSession.sessionId, 
+                mentorId: theSession.mentorId, 
+                menteeId: theSession.menteeId, 
+                score: score, 
+                menteeFullName: mentee.first_name + '' + mentee.last_name, 
+                remark: remark
+            }
+
+            return res 
+            .status(201)
+            .json(new ResponseHandler(201, 'Thanks for your review.', newReview, null).result());
+
+        }catch(err){
+            return res 
+            .status(500) 
+            .json(new ResponseHandler(500, err.message, null).result())
+        }
+        
     }
 }
 

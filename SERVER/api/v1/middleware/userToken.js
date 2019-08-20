@@ -35,6 +35,16 @@ const userAccess = (req, res, next) => {
     }
 };
 
+const menteeAccess = (req, res, next) =>{
+    if(req.user.is_mentor === false){
+        next()
+    }else {
+        return res 
+        .status(403)
+        .json(new ResponseHandler(403, 'Sorry! Only mentee authorized!', null).result())
+    }
+}
+
 const mentorAccess = (req, res, next) =>{
     if(req.user.is_mentor === true){
         next()
@@ -59,6 +69,7 @@ const adminAccess = (req, res, next) => {
 export {
     tokenExists,
     userAccess,
+    menteeAccess,
     mentorAccess,
     adminAccess
 };

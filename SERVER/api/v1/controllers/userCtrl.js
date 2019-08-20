@@ -116,6 +116,8 @@ class User{
                 const token = await tokenMan.tokenizer({
                     id: userFinder.id,
                     email: userFinder.email,
+                    first_name: userFinder.first_name, 
+                    last_name: userFinder.last_name,
                     is_admin: userFinder.is_admin, 
                     is_mentor: userFinder.is_mentor
                 });
