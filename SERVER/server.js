@@ -1,6 +1,7 @@
 import express from "express";  
 import userRouter from "./api/v1/routes/userRouter";
 import mentorRouter from './api/v1/routes/mentorRouter';
+import sessionRouter from './api/v1/routes/sessionRouter';
 
 
 const app = express(); 
@@ -10,6 +11,7 @@ app.use(express.json());
 
 app.use(userRouter);
 app.use(mentorRouter);
+app.use(sessionRouter);
 
 
 app.get("/", (req, res) =>{
