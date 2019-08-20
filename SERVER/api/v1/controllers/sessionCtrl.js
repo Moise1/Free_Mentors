@@ -136,7 +136,7 @@ class MentorshipSession {
                 reviews.splice(index, 1);
                 return res
                 .status(200)
-                .json(new ResponseHandler(200, `Session review number ${req.params.sessionId} successfully deleted!`, null).result());
+                .json(new ResponseHandler(200, `Session review number  ${req.params.sessionId} successfully deleted!`, null).result());
         }catch(err){
             return res 
             .status(500) 
