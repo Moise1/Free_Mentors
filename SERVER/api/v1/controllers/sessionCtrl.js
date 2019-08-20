@@ -42,7 +42,7 @@ class MentorshipSession {
                     status: 'pending'
                 }
     
-                sessions.push(newSession);
+                sessions.push(newSession)
                 return res
                     .status(201)
                     .json(new ResponseHandler(201, 'Mentorship session successfully created!', sessions, null).result());
