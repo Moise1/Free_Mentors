@@ -4,6 +4,7 @@ import ResponseHandler from '../utils/responseHandler';
 import sessionFields from '../helpers/sessionValidator';
 import reviewFields from '../helpers/reviewValidator';
 import renamer from '../utils/renamer';
+import reviews from '../models/reviewModel';
 
 class MentorshipSession {
 
@@ -110,9 +111,10 @@ class MentorshipSession {
                 remark: remark
             }
 
+            reviews.push(newReview);
             return res 
             .status(201)
-            .json(new ResponseHandler(201, 'Thanks for your review.', newReview, null).result());
+            .json(new ResponseHandler(201, 'Thanks for your review.', reviews, null).result());
 
         }catch(err){
             return res 
@@ -120,6 +122,27 @@ class MentorshipSession {
             .json(new ResponseHandler(500, err.message, null).result())
         }
         
+    }
+
+    static async deleteReview(req, res){
+
+        const theReview = reviews.find(r => r.sessionId === parseInt(req.params.sessionId));
+
+        if(!theReview) return res 
+        .status(404) 
+        .json(new ResponseHandler(404, `Sorry, sesssion review number ${req.params.sessionId} not found`, null).result()) 
+        try{
+            const index = reviews.indexOf(theReview);
+                reviews.splice(index, 1);
+                return res
+                .status(200)
+                .json(new ResponseHandler(200, `Session review number  ${req.params.sessionId} successfully deleted!`, null).result());
+        }catch(err){
+            return res 
+            .status(500) 
+            .json(new ResponseHandler(500, err.message, null).result())
+        }
+
     }
 }
 
