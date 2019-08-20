@@ -106,7 +106,7 @@ class MentorshipSession {
                 mentorId: theSession.mentorId, 
                 menteeId: theSession.menteeId, 
                 score: score, 
-                menteeFullName: mentee.first_name + '' + mentee.last_name, 
+                menteeFullName: mentee.first_name  +  '  ' +  mentee.last_name, 
                 remark: remark
             }
 
