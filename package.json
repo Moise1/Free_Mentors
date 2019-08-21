@@ -4,7 +4,9 @@
   "description": "Free Mentors is a social initiative where accomplished professionals become role models to",
   "main": "server.js",
   "scripts": {
-    "start": "babel-watch  ./SERVER/server.js"
+    "start": "babel-watch  ./SERVER/server.js",
+    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1000 --require @babel/polyfill --require @babel/register SERVER/api/v1/tests/**/*.test.js --exit", 
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
