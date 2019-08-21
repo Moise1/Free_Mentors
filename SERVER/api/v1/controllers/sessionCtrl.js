@@ -24,7 +24,7 @@ class MentorshipSession {
             Promise.all(users).then(async values => {
                 const modValues = values.map(v => {
                     const alteredValue = renamer(v, {
-                        "id": "mentorId"
+                        "userId": "mentorId"
                     })
                     return alteredValue;
                 })

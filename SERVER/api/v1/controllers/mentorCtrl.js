@@ -20,7 +20,7 @@ class Mentor {
                     return new Promise((resolve, reject) => {
                         const currMentor = mentors.find(m => m.id === id);
                         const modMentor = renamer(currMentor, {
-                            "id": "mentorId"
+                            "userId": "mentorId"
                         });
                         return resolve(modMentor);
                     })
@@ -51,7 +51,7 @@ class Mentor {
     static async singleMentor(req, res) {
 
         const modUsers = await users.map(u => {
-            const alteredUser = renamer(u, {"id": "mentorId"});
+            const alteredUser = renamer(u, {"userId": "mentorId"});
             return alteredUser;
         })
 

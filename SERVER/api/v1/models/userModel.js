@@ -7,15 +7,15 @@ const adminPassword = async()=>{
     const hash = await hasher.hashingPassword('job123', 10); 
     return hash;
 }
-let id = 1 ; 
+let userId = 1 ; 
 let is_admin = true;
 let email = 'job@freementors.com';
-let token = tokenMan.tokenizer({id ,is_admin}); 
+let token = tokenMan.tokenizer({userId,is_admin}); 
 
 let admin = adminPassword().then(pwd =>{
         return {
             token: token,
-            id: id, 
+            userId: userId, 
             first_name: 'john', 
             last_name: 'job', 
             email: email,

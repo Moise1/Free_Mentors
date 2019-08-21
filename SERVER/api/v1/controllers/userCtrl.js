@@ -22,7 +22,7 @@ class User{
         .json(new ResponseHandler(404, error.details[0].message, null).result());
 
 
-        const id = users.length + 1;
+        const userId = users.length + 1;
         const is_admin = false;
         const {
             first_name,
@@ -41,10 +41,10 @@ class User{
 
             const newUser = {
                 token: tokenMan.tokenizer({
-                    id,
+                    userId,
                     is_admin,
                 }),
-                id: id,
+                userId: userId,
                 first_name: first_name,
                 last_name: last_name,
                 email: email.toLowerCase(),
@@ -69,7 +69,7 @@ class User{
             Promise.all(users).then(values => {
                 return res 
                 .status(201) 
-                .json(new ResponseHandler(201, 'User created successfully', lodash.omit(values[values.length -1], ['password']), null).result());
+                .json(new ResponseHandler(201, 'User created successfully.', lodash.omit(values[values.length -1], ['password']), null).result());
             });
 
         } catch (err) {
@@ -114,7 +114,7 @@ class User{
                 }
 
                 const token = await tokenMan.tokenizer({
-                    id: userFinder.id,
+                    userId: userFinder.userId,
                     email: userFinder.email,
                     first_name: userFinder.first_name, 
                     last_name: userFinder.last_name,
@@ -124,7 +124,7 @@ class User{
                 return res
                 .header('Authorization', `Bearer ${token}`)
                 .status(200)
-                .json(new ResponseHandler(200, 'Successfully Signed In', lodash.omit(userFinder, ['password'])).result())
+                .json(new ResponseHandler(200, 'Successfully Signed In.', lodash.omit(userFinder, ['password'])).result())
             });
 
         } catch (err) {
@@ -136,16 +136,16 @@ class User{
 
     static async updateUser(req, res){
 
-        const findUser = users.find(user => user.id === parseInt(req.params.id));
+        const findUser = users.find(user => user.userId === parseInt(req.params.userId));
         try{
                 if(!findUser) return res
                 .status(404)
-                .json(new ResponseHandler(404, `User number ${req.params.id} not found!`, null).result()); 
+                .json(new ResponseHandler(404, `User number ${req.params.userId} not found!`, null).result()); 
                 
                 findUser.is_mentor = Boolean(req.body);  
                 return res
                 .status(200)
-                .json(new ResponseHandler(200, `User number ${req.params.id} successfully updated!`, lodash.omit(findUser, ['password'])).result())
+                .json(new ResponseHandler(200, `User number ${req.params.userId} successfully updated.`, lodash.omit(findUser, ['password'])).result())
 
         }catch(err){
             return res
