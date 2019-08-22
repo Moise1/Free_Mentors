@@ -24,7 +24,7 @@ class MentorshipSession {
             Promise.all(users).then(async values => {
                 const modValues = values.map(v => {
                     const alteredValue = renamer(v, {
-                        "id": "mentorId"
+                        "userId": "mentorId"
                     })
                     return alteredValue;
                 })
@@ -72,7 +72,7 @@ class MentorshipSession {
                 theSession.status = req.body.status; 
                 return res
                     .status(200)
-                    .json(new ResponseHandler(200, 'Mentorship session request successfully updated!', theSession, null).result())
+                    .json(new ResponseHandler(200, 'Mentorship session request successfully updated.', theSession, null).result())
          
         } catch (err) {
             return res

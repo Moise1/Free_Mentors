@@ -15,6 +15,4 @@ mentorRouter.get("/api/v1/mentors", tokenExists, userAccess, Mentor.allMentors);
 mentorRouter.get("/api/v1/mentors/:mentorId", tokenExists, userAccess, Mentor.singleMentor);
 
 
-
-
 export default mentorRouter;
