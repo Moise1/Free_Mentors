@@ -8,7 +8,6 @@ export default {
         bio: 'multitasker', 
         occupation: 'medical doctor', 
         expertise: '4 years', 
-
     }, 
     invalidSignUp: {
         first_name: 'gold', 

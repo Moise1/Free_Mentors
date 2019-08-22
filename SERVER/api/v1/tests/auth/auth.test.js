@@ -20,7 +20,6 @@ const adminToken = tokenMan.tokenizer(tokenizedAdmin);
 
 chai.use(chaiHttp);
 
-
 describe('User Authentication:', () => {
     describe('Home Page', () => {
         it('Should display "Welcome to AutoMart"', (done) => {
