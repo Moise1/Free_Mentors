@@ -71,7 +71,7 @@ class Mentor {
                 delete theMentor['password'];
                 return res
                 .status(200)
-                .json(new ResponseHandler(200, 'Your mentor', theMentor, null).result());
+                .json(new ResponseHandler(200, 'Your mentor.', theMentor, null).result());
             }
 
         } catch (err) {
