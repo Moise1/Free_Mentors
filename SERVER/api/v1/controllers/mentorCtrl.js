@@ -9,20 +9,20 @@ class Mentor {
 
         try {
 
-            users.forEach(async user => {
+            users.forEach(user => {
                 if (user.is_mentor === true) {
-                    return mentors.push(user);
+                    mentors.push(user);
                 }
             })
 
-            const uniqueMentors = Array.from(new Set(mentors.map(m => m.id)))
-                .map(id => {
+            const uniqueMentors = Array.from(new Set(mentors.map(m => m.userId)))
+                .map(userId => {
                     return new Promise((resolve, reject) => {
-                        const currMentor = mentors.find(m => m.id === id);
+                        const currMentor = mentors.find(m => m.userId === userId);
                         const modMentor = renamer(currMentor, {
                             "userId": "mentorId"
                         });
-                        return resolve(modMentor);
+                        resolve(modMentor);
                     })
                 })
 
@@ -34,9 +34,6 @@ class Mentor {
                 return res
                 .status(200)
                 .json(new ResponseHandler(200, 'All Mentors', output, null).result());
-                
-            }).catch(err => {
-                console.log(err)
             })
 
         }catch (err) {
