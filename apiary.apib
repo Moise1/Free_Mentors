@@ -1,0 +1,396 @@
+FORMAT: 1A
+HOST: https://moise-freementors.herokuapp.com/
+
+# Free_Mentors-API
+
+Free Mentors is a social initiative where accomplished professionals become role models to
+young people to provide free mentorship sessions.
+
+## User Authentication | Sign Up  [/api/v1/auth/signup]
+
+### Sign Up [POST]
+
+**EndPoint:** 
+`/api/v1/auth/signup` 
+
+**Description:**
+Every new user should sign up before accessing the app's
+functionalities.
+
++ Request (application/json)
+
+        {
+            "first_name":"zonda",
+            "last_name":"Ken",
+            "email":"kon@gmail.com", 
+            "password":"bsrick124",
+            "address":"kigali",
+            "bio":"so successful",
+            "occupation":"army",
+            "expertise":"5 years"
+        }
+        
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "status": 201,
+                "message": "Successfully Signed Up!",
+                "data": [
+                    {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTAzMDQzLCJleHAiOjE1NjkwOTUwNDN9.G3l9S4Ciumypg8loSQEeVGKOUCoT5_zDZnlYnM3ZFp0",
+                        "userId": 2,
+                        "first_name": "zonda",
+                        "last_name": "Ken",
+                        "email": "kon@gmail.com",
+                        "address": "kigali",
+                        "bio": "so successful",
+                        "occupation": "army",
+                        "expertise": "5 years",
+                        "is_admin": false,
+                        "is_mentor": true
+                    }, {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTAzMzU4LCJleHAiOjE1NjkwOTUzNTh9.XsjTkIouqIgubfeC66UGdUtC690-TIGzZL6wCrWveVw",
+                        "userId": 4,
+                        "first_name": "fonda",
+                        "last_name": "zen",
+                        "email": "fon@gmail.com",
+                        "address": "kigali",
+                        "bio": "so successful",
+                        "occupation": "army",
+                        "expertise": "N/A",
+                        "is_admin": false,
+                        "is_mentor": false
+                    }
+                ]
+            }
+    
+        
+        
+
+## User Authentication | Sign In [/api/v1/auth/signin]
+
+### Sign In [POST]
+
+**EndPoint:**
+`/api/v1/auth/signin`
+
+**Description:**
+Every returning user should sign in before accessing the app's
+functionalities if they've been logged out. 
+
++ Request (application/json)
+
+        {
+            
+            "email":"fon@gmail.com",
+            "password":"bsrick124"
+        }
+        
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "message": "Successfully Signed In!",
+                "data": [
+                    {
+                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTAzMzU4LCJleHAiOjE1NjkwOTUzNTh9.XsjTkIouqIgubfeC66UGdUtC690-TIGzZL6wCrWveVw",
+                         "userId": 4,
+                         "first_name": "fonda",
+                         "last_name": "zen",
+                         "email": "fon@gmail.com",
+                         "address": "kigali",
+                         "bio": "so successful",
+                         "occupation": "army",
+                         "expertise": "N/A",
+                         "is_admin": false,
+                         "is_mentor": false
+                        
+                    }
+                ]
+            }
+            
+            
+
+## Mentee get all mentors list [/api/v1/mentors]
+
+### All mentors [GET]
+
+**Endpoint:** 
+`/api/v1/mentors` 
+
+**Description:** 
+A mentee would be able to view a list of all mentors.
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "message": "All Mentors!",
+                "data": [
+                    {
+                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTA2MzI3LCJleHAiOjE1NjkwOTgzMjd9.go17L7BXrQkw91c29H3w0AdPsi6NFBM564-nGjjC6Hk",
+                         "mentorId": 2,
+                         "first_name": "fonda",
+                         "last_name": "zen",
+                         "email": "von@gmail.com",
+                         "address": "kigali",
+                         "bio": "so successful",
+                         "occupation": "army",
+                         "expertise": " 5 years",
+                         "is_admin": false,
+                         "is_mentor": true
+                        
+                    },{
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTA2MzQ0LCJleHAiOjE1NjkwOTgzNDR9.b70RjaP7B0Lx_8bR6CrqPny_apz_rL6GBk7m9asV0jE",
+                        "mentorId": 3,
+                        "first_name": "fonda",
+                        "last_name": "ren",
+                        "email": "ron@gmail.com",
+                        "address": "kigali",
+                        "bio": "so successful",
+                        "occupation": "army",
+                        "expertise": " 5 years",
+                        "is_admin": false,
+                        "is_mentor": true
+                    }
+                ]
+            }
+
+
+## Mentee gets  a single mentor [/api/v1/car/{mentorId}]
+
+### A single car [GET]
+
+**Endpoint:** 
+`/api/v1/car/:mentorId` 
+
+**Description:** 
+A seller would be able get a single car sale ad.
+
++ Parameters 
+
+    + mentorId (required, number, `2`) - An id of a mentor.
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "message": "Your mentor.",
+                "data": {
+                    
+                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTA3MjAyLCJleHAiOjE1NjkwOTkyMDJ9.TGYsaBFydWR7eKiNWuyeQzNmjYI3c9eNpeyp-cfMUb8",
+                         "mentorId": 2,
+                         "first_name": "fonda",
+                         "last_name": "ren",
+                         "email": "pon@gmail.com",
+                         "address": "kigali",
+                         "bio": "so successful",
+                         "occupation": "army",
+                         "expertise": " 5 years",
+                         "is_admin": false,
+                         "is_mentor": true
+                }
+            }
+
+
+
+
+## Mentee review mentor [/api/v1/sessions/{sessionId}/review]
+
+### Review mentor [POST]
+
+**Endpoint:** 
+`/api/v1/sessions/:sessionId/review` 
+
+**Description:** 
+A mentee may review their mentor after the session.
+
++ Parameters 
+
+    + sessionId (required, number, `1`) 
+
++ Request (application/json) 
+
+        {
+            "score":"1", 
+            "remark":"You're goood."
+        }
+
++ Response 201 (application/json) 
+
+    + Body
+
+            {
+                "status": 201,
+                "message": "Ad successfully updated!",
+                "data": [
+                    {
+                        "sessionId": 1,
+                        "mentorId": 2,
+                        "score": "1",
+                        "menteeFullName": "zonda  Ken",
+                        "remark": "You're the best."
+                        
+                    }
+                ]
+            }
+
+
+## Mentor update request [/api/v1/sessions/{sessionId}/accept]
+
+### Review mentor [PATCH]
+
+**Endpoint:** 
+`/api/v1/sessions/:sessionId/accept` 
+
+**Description:** 
+A mentor may accept the session request.
+
++ Parameters 
+
+    + sessionId (required, number, `1`) 
+
++ Request (application/json) 
+
+        {
+            "status":"accepted", 
+            
+        }
+
++ Response 200 (application/json) 
+
+    + Body
+
+            {
+                "status": 200,
+                "message": "Mentorship session request successfully updated.",
+                "data": [
+                    {
+                        "sessionId": 1,
+                        "mentorId": 2,
+                        "questions": "Need your help.",
+                        "menteeEmail": "kon@gmail.com",
+                        "status": "accepted"
+                    }
+                ]
+            }
+
+
+
+## Mentor update request [/api/v1/sessions/{sessionId}/reject]
+
+### Review mentor [PATCH]
+
+**Endpoint:** 
+`/api/v1/sessions/:sessionId/reject` 
+
+**Description:** 
+A mentor may accept the session request.
+
++ Parameters 
+
+    + sessionId (required, number, `1`) 
+
++ Request (application/json) 
+
+        {
+            "status":"rejected", 
+            
+        }
+
++ Response 200 (application/json) 
+
+    + Body
+
+            {
+                "status": 200,
+                "message": "Mentorship session request successfully updated.",
+                "data": [
+                    {
+                        "sessionId": 1,
+                        "mentorId": 2,
+                        "questions": "Need your help.",
+                        "menteeEmail": "kon@gmail.com",
+                        "status": "rejected"
+                    }
+                ]
+            }
+
+
+
+
+### Delete review [DELETE]
+
+**Endpoint:** 
+`/api/v1/sessions/:sessionId/review` 
+
+**Description:** 
+Admin may delete an inappropriate review
+
++ Parameters 
+
+    + sessionId (required, number, `1`) 
+
++ Response 200 (application/json) 
+
+     + Body
+
+            {
+                "status": 200,
+                "message": "Session review  number 1 successfully deleted!"
+            }
+    
+
+
+
+## Admin update user [/api/v1/users/{userId}]
+
+### Update user [PATCH]
+
+**Endpoint:** 
+`/api/v1/users/:userId` 
+
+**Description:** 
+Admin should be able to update the user's mentor status
+
++ Parameters 
+
+    + userId (required, number, `2`) 
+
++ Request (application/json) 
+
+        {
+            "status":"true"
+        }
+
++ Response 200 (application/json) 
+
+    + Body
+
+            {
+                "status": 200,
+                "message": "User number 2 successfully updated.",
+                "data": [
+                    {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTY2NTkxNjc2LCJleHAiOjE1NjkxODM2NzZ9.JndVdRoDTzIzxrjEQ1F32KFVhF4fTzWl32wD8QzcSws",
+                        "userId": 2,
+                        "first_name": "fonda",
+                        "last_name": "ren",
+                        "email": "pon@gmail.com",
+                        "address": "kigali",
+                        "bio": "so successful",
+                        "occupation": "army",
+                        "expertise": "N/A",
+                        "is_admin": false,
+                        "is_mentor": true
+                    }
+                ]
+            }
