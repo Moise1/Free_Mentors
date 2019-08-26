@@ -81,7 +81,7 @@ To get the code in this repo and customize it to suit your needs, do the followi
 
 ```
 git clone https://github.com/Moise1/Free_Mentors.git
-cd AutoMart
+cd Free_Mentors
 npm install
 
 ```
