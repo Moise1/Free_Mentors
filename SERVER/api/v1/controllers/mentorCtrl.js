@@ -2,6 +2,7 @@ import mentors from '../models/mentorModel';
 import users from '../models/userModel';
 import ResponseHandler from '../utils/responseHandler';
 import renamer from '../utils/renamer';
+import lodash from 'lodash';
 
 class Mentor {
 
@@ -27,8 +28,8 @@ class Mentor {
                 })
 
             Promise.all(uniqueMentors).then(output => {
-                output.forEach(async obj => {
-                    await delete obj['password'];
+             output.forEach(obj => {
+                    return delete obj['token'], delete obj['is_mentor'], delete obj['is_admin'], delete obj['password'];
                 })
 
                 return res

@@ -54,7 +54,7 @@ class User{
                 occupation: occupation, 
                 expertise: expertise,
                 is_admin: is_admin, 
-                is_mentor: occupation  ===  'N/A' ||  expertise  ===  'N/A' ? false : true
+                is_mentor: false,
             }
             
             // Check whether the email is already taken. 
@@ -69,7 +69,7 @@ class User{
             Promise.all(users).then(values => {
                 return res 
                 .status(201) 
-                .json(new ResponseHandler(201, 'User created successfully.', lodash.omit(values[values.length -1], ['password']), null).result());
+                .json(new ResponseHandler(201, 'User created successfully.', lodash.pick(values[values.length -1], ['token']), null).result());
             });
 
         } catch (err) {
@@ -124,7 +124,7 @@ class User{
                 return res
                 .header('Authorization', `Bearer ${token}`)
                 .status(200)
-                .json(new ResponseHandler(200, 'Successfully Signed In.', lodash.omit(userFinder, ['password'])).result())
+                .json(new ResponseHandler(200, 'Successfully Signed In.', lodash.pick(userFinder, ['token'])).result())
             });
 
         } catch (err) {
