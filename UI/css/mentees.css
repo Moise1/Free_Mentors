@@ -115,6 +115,14 @@ body {
         margin-left: -60px;
       }
 
+    .bell-title ul {
+        list-style-type: none;
+        padding: 10px;
+    }
+
+    .bell-title ul > * {
+        padding: 5px;
+    }
 
     .notification .bell-title::after {
         content: "";

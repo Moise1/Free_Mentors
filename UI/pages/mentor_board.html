@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/mentor_board.css">
+    <link rel="stylesheet" href="../assets/css/all.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/accusoft.png">
+
+    <title>Free Mentors | Mentor's Board </title>
+</head>
+
+<body>
+    <div class="main-container">
+
+        <header class="header">
+            <a class="logo" href="/">
+
+                <span id="logo-icon">
+                    <i class="fab fa-accusoft"></i>
+                </span>
+                <h3>Free<span id="free-mentors">Mentors</span></h3>
+            </a>
+
+            <div class="register-buttons">
+                <a href="./mentors.html"><button class="button">Back</button></a>
+                <a href="/"><button class="button" id="admin-dash">Log Out</button></a>
+            </div>
+            <div class="mentor">
+                <img src="https://res.cloudinary.com/mo1/image/upload/v1564584621/kobe_lq48jt.jpg" alt="">
+                <p>Me</p>
+            </div>
+        </header>
+
+        <!-- For mobile screens -->
+
+        <nav role="navigation">
+
+            <div id="menuToggle">
+                <input type="checkbox" />
+
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <ul id="menu">
+                    <li class="item" id="me">
+                        <img src="https://res.cloudinary.com/mo1/image/upload/v1564584621/kobe_lq48jt.jpg" alt="">
+                        <p>Me</p>
+                    </li>
+                    <li class="item"><a href="./mentors.html">Back</a></li>
+                    <li class="item"><a href="/">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="content-container">
+            <p>All mentorship requests</p>
+            <div class="accounts-table">
+                <table cellspacing="0">
+                    <thead>
+                        <tr class="table-head">
+                            <th class="column">User</th>
+                            <th class="column">Name</th>
+                            <th class="column">Bio</th>
+                            <th class="column">Occupation</th>
+                            <th class="column">Expertise</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="data-head" data-id="1" data-toggle="modal" data-target="#accountModal">
+                            <td class="data">
+                                <img src="https://res.cloudinary.com/mo1/image/upload/v1564584621/kobe_lq48jt.jpg"
+                                    alt="">
+                            </td>
+                            <td class="data">Kobe Bryant</td>
+                            <td class="data">A 44-year old husband and father of 2.</td>
+                            <td class="data">Retired professional basketball player</td>
+                            <td class="data">5 years</td>
+                            <td class="data delete">
+                                <i type="icon" class="fas fa-thumbs-down" title="decline"></i>
+                            </td>
+                            <td class="data update">
+                                <i type="icon" class="fas fa-thumbs-up" title="accept"></i>
+                            </td>
+                        </tr>
+
+
+                        <tr class="data-head" data-id="2" data-toggle="modal" data-target="#accountModal">
+                            <td class="data">
+                                <img src="https://res.cloudinary.com/mo1/image/upload/v1564584373/kiyosaki_ccrd22.jpg"
+                                    alt="">
+                            </td>
+                            <td class="data">Robert Kiyosaki</td>
+                            <td class="data">A 53-year old husband and enthusiastic writer</td>
+                            <td class="data">Professional Economist</td>
+                            <td class="data">26years </td>
+                            <td class="data delete">
+                                <i type="icon" class="fas fa-thumbs-down" title="decline"></i>
+                            </td>
+                            <td class="data update">
+                                <i type="icon" class="fas fa-thumbs-up" title="accept"></i>
+                            </td>
+                        </tr>
+
+                        <tr class="data-head" data-id="3" data-toggle="modal" data-target="#accountModal">
+                            <td class="data">
+                                <img src="https://res.cloudinary.com/mo1/image/upload/v1564614348/lupita_hehsru.jpg"
+                                    alt="">
+                            </td>
+                            <td class="data">Lupita Nyo'ongo</td>
+                            <td class="data">Born and raised in Kenya. She is now 30 years-old </td>
+                            <td class="data">Professional action movies actress</td>
+                            <td class="data">10 year</td>
+                            <td class="data delete">
+                                <i type="icon" class="fas fa-thumbs-down" title="decline"></i>
+                            </td>
+                            <td class="data update">
+                                <i type="icon" class="fas fa-thumbs-up" title="accept"></i>
+                            </td>
+                        </tr>
+
+                        <tr class="data-head" data-id="4" data-toggle="modal" data-target="#accountModal">
+                            <td class="data">
+                                <img src="https://res.cloudinary.com/mo1/image/upload/v1564585032/ronaldo_tgaotu.jpg"
+                                    alt="">
+                            </td>
+                            <td class="data">Chrstistiano Ronaldo</td>
+                            <td class="data">A 35-year old husband, father and fashion model</td>
+                            <td class="data">Professional footbal player</td>
+                            <td class="data">15 years</td>
+                            <td class="data delete">
+                                <i type="icon" class="fas fa-thumbs-down" title="decline"></i>
+                            </td>
+                            <td class="data update">
+                                <i type="icon" class="fas fa-thumbs-up" title="accept"></i>
+                            </td>
+                        </tr>
+
+                        <tr class="data-head" data-id="5" data-toggle="modal" data-target="#accountModal">
+                            <td class="data">
+                                <img src="https://res.cloudinary.com/mo1/image/upload/v1565083512/mentee_qubvql.jpg"
+                                    alt="">
+                            </td>
+                            <td class="data">Man Young</td>
+                            <td class="data">A 20 year-old young man</td>
+                            <td class="data">University student</td>
+                            <td class="data">None</td>
+                            <td class="data delete">
+                                <i type="icon" class="fas fa-thumbs-down" title="decline"></i>
+                            </td>
+                            <td class="data update">
+                                <i type="icon" class="fas fa-thumbs-up" title="accept"></i>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; Free Mentors 2019</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -130,51 +130,64 @@ body {
         margin-top: 50px;
     }
 
-    .request-card {
-        border-bottom: 1px solid #000;
+   /* Users Table */
 
-    }
+   h3 {
+    margin-left: 40%;
+}
+.accounts-table {
+    margin: 5%  0 0 12%;
+    width: 67%;
+}
 
-    .request-card:not(p) {
-        position: relative;
-        display: flex;
-    }
+table {
+    border: 2px solid rgba(220, 220, 220, 0.4);
+    background-color: #fff;
+    border-radius: 8px;
+}
 
-    .request-card p {
-        text-align: left;
-        margin: 160px 10px 0 -120px;
-    }
+.table-head th {
+    padding: 35px;
+    width: 100%;
+    border-bottom: 2px solid rgba(220, 220, 220, 0.4);
+}
 
-    .request-card img {
-        width: 130px;
-        height: 130px;
-        border-radius: 55%;
-        margin: 20px 0 30px 30px;
-        border-bottom: 2px solid #001;
-    }
+.data-head td {
+    padding: 30px;
+    width: auto;
+    border-bottom: 2px solid rgba(220, 220, 220, 0.4);
+}
 
-    .request-card .icons {
-        position: absolute;
-        top: 50%;
-        left: 88%;
-    }
+.data img {
+    cursor: pointer;
+    width: 130px;
+    height: 100px;
+    border-radius: 5px;
+}
 
-    .request-card .icons i {
-        margin-right: 40px;
-        font-size: 30px;
-        cursor: pointer;
-    }
+.delete:hover i{
+    color: #ff0000;
+    cursor: pointer;
+}
 
-    .icons #yes {
-        color: #008000;
-    }
+.update:hover i{
+    color: #008000;
+    cursor: pointer;
+}
 
-    .icons #no {
-        color: #ff0000;
-    }
-
-    .icons[title="accept"] {}
-
+/* Update user form  starts */
+.user-image {
+    position: relative;
+    height: 250px;
+}
+.user-image img{
+    height: 220px; 
+    width: 250px;
+    border-radius: 55%;
+    left: 20%;
+    top: 2%;
+    position: absolute;
+}
     .main-container .footer {
         grid-column: span 13;
         margin-top: -6%;
