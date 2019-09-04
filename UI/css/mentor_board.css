@@ -136,7 +136,7 @@ body {
     margin-left: 40%;
 }
 .accounts-table {
-    margin: 5%  0 0 12%;
+    margin: 5%  0 0 9%;
     width: 67%;
 }
 
@@ -153,7 +153,7 @@ table {
 }
 
 .data-head td {
-    padding: 30px;
+    padding: 25px;
     width: auto;
     border-bottom: 2px solid rgba(220, 220, 220, 0.4);
 }
