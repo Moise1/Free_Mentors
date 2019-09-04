@@ -5,7 +5,6 @@ import sessionFields from "../helpers/sessionValidator";
 import reviewFields from "../helpers/reviewValidator";
 import renamer from "../utils/renamer";
 import reviews from "../models/reviewModel";
-import mentors from "../models/mentorModel";
 
 class MentorshipSession {
   static async createSession(req, res) {

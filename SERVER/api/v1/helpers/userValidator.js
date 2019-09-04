@@ -1,61 +1,33 @@
 import Joi from "joi";
 
 const signUpFields = (user) => {
-  const schema = {
+  const schema = Joi.object().keys({
     first_name: Joi.string().regex(/^\S+$/).min(3).max(20)
-      .required(),
+      .required().error(() =>'first_name  can\'t have empty spaces'),
     last_name: Joi.string().regex(/^\S+$/).min(3).max(20)
-      .required(),
-    email: Joi.string().email({ minDomainAtoms: 2 }).trim().required(),
+      .required().error(() =>'last_name  can\'t have empty spaces'),
+    email: Joi.string().email({ minDomainAtoms: 2 }).trim().required().error(() => 'email must be a valid email'),
     password: Joi.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
-      .required(),
+      .required().error(() => "password must be at least 8 characters long containing 1 capital letter, 1 small letter, 1 digit 1 of these special characters(@, $, !, %, *, ?, &) "),
     address: Joi.string().min(3).max(255).required(),
     bio: Joi.string().min(3).max(255).required(),
     occupation: Joi.string().required(),
     expertise: Joi.string().required(),
-  };
+  })
 
-  const options = {
-    language: {
-      key: "{{key}}",
-      string: {
-        regex: {
-          base: "must not have empty spaces",
-        },
-      },
-      key: "password",
-      string: {
-        regex: {
-          base: " must be at least 8 chacters long containing 1 small letter, 1 capital letter, 1 digit and one and \
-                    of these characters(@ , $ , ! , %, *, ?, &).",
-        },
-      },
-    },
-  };
-
-  return Joi.validate(user, schema, options);
+  return Joi.validate(user, schema);
 };
 
 
 const loginFields = (userFinder) => {
-  const schema = {
+  const schema = Joi.object().keys({
     email: Joi.string().regex(/^\S+$/).email().required(),
     password: Joi.string().required(),
 
-  };
+  });
 
-  const options = {
-    language: {
-      key: "{{key}} ",
-      string: {
-        regex: {
-          base: "must not have empty spaces",
-        },
-      },
-    },
-  };
 
-  return Joi.validate(userFinder, schema, options);
+  return Joi.validate(userFinder, schema);
 };
 
 export { signUpFields, loginFields };

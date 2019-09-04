@@ -1,7 +1,8 @@
+import express from 'express';
 import {
     Router,
     json
-} from express from "express";
+} from  "express";
 
 import MentorshipSession from "../controllers/sessionCtrl";
 import {

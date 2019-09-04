@@ -1,7 +1,8 @@
+import express from 'express';
 import {
     Router,
     json
-} from express from "express";
+} from  "express";
 
 import Mentor from "../controllers/mentorCtrl";
 import { tokenExists, userAccess, adminAccess } from "../middleware/userToken";

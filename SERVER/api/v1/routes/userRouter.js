@@ -1,7 +1,8 @@
+import express from 'express';
 import {
     Router,
     json
-} from express from "express";
+}  from 'express';
 
 import User from "../controllers/userCtrl";
 import { tokenExists, userAccess, adminAccess } from "../middleware/userToken";
