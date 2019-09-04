@@ -1,12 +1,12 @@
 import Joi from "joi"; 
 
 const signUpFields = (user) => {
-    
+
     const schema = {
         first_name: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         last_name: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         email: Joi.string().email({ minDomainAtoms: 2 }).trim().required(),
-        password: Joi.string().regex(/^\S+$/).min(3).max(255).required(), 
+        password: Joi.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/).max(20).required(), 
         address: Joi.string().min(3).max(255).required(), 
         bio: Joi.string().min(3).max(255).required(), 
         occupation: Joi.string().required(), 
@@ -31,7 +31,7 @@ const signUpFields = (user) => {
 const loginFields = (userFinder) => {
     const schema = {
         email: Joi.string().regex(/^\S+$/).email().required(),
-        password: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
+        password: Joi.string().required()
 
     };
 
