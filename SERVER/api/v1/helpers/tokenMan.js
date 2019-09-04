@@ -5,7 +5,7 @@ import devKeys from "../config/config";
 export default {
     tokenizer(payload){
         const token = jwt.sign(payload, devKeys.SECRET_OR_PUBLIC_KEY, {
-            expiresIn: "30d"
+            expiresIn: 86400
         }); 
         return token;
     },

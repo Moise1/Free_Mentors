@@ -5,6 +5,7 @@ import sessionFields from '../helpers/sessionValidator';
 import reviewFields from '../helpers/reviewValidator';
 import renamer from '../utils/renamer';
 import reviews from '../models/reviewModel';
+import mentors from '../models/mentorModel';
 
 class MentorshipSession {
 
@@ -90,7 +91,7 @@ class MentorshipSession {
 
         if (error) return res
             .status(400)
-            .json(new ResponseHandler(404, error.details[0].message, null).result());
+            .json(new ResponseHandler(400, error.details[0].message, null).result());
 
         const {score, remark} = req.body; 
         const mentee = req.user;

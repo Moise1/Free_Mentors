@@ -28,16 +28,23 @@ class Mentor {
                 })
 
             Promise.all(uniqueMentors).then(output => {
-             output.forEach(obj => {
-                    return delete obj['token'], delete obj['is_mentor'], delete obj['is_admin'], delete obj['password'];
-                })
+                if (output === undefined || output.length == 0) {
+                    return res
+                        .status(404)
+                        .json(new ResponseHandler(404, 'No mentors yet.', null).result())
+                } else {
+                    output.forEach(obj => {
+                        return delete obj['token'], delete obj['is_mentor'], delete obj['is_admin'], delete obj['password'];
+                    })
 
-                return res
-                .status(200)
-                .json(new ResponseHandler(200, 'All Mentors', output, null).result());
+                    return res
+                        .status(200)
+                        .json(new ResponseHandler(200, 'All Mentors', output, null).result());
+                }
+
             })
 
-        }catch (err) {
+        } catch (err) {
             return res
                 .status(500)
                 .json(new ResponseHandler(500, err.message, null).result());
@@ -49,27 +56,29 @@ class Mentor {
     static async singleMentor(req, res) {
 
         const modUsers = await users.map(u => {
-            const alteredUser = renamer(u, {"userId": "mentorId"});
+            const alteredUser = renamer(u, {
+                "userId": "mentorId"
+            });
             return alteredUser;
         })
 
-        const theMentor = await  modUsers.find(m => m.mentorId === parseInt(req.params.mentorId));
+        const theMentor = await modUsers.find(m => m.mentorId === parseInt(req.params.mentorId));
         try {
 
-            if(!theMentor || theMentor === undefined) {
+            if (!theMentor || theMentor === undefined) {
                 return res
-                .status(404)
-                .json(new ResponseHandler(404, `Mentor number ${req.params.mentorId} not found`, null).result());
-    
-            }else if(theMentor.is_mentor !== true){
+                    .status(404)
+                    .json(new ResponseHandler(404, `Mentor number ${req.params.mentorId} not found`, null).result());
+
+            } else if (theMentor.is_mentor !== true) {
                 return res
-                .status(404)
-                .json(new ResponseHandler(404, `User number ${req.params.mentorId} is not a mentor`, null).result());
-            }else {
-                delete theMentor['password'];
+                    .status(404)
+                    .json(new ResponseHandler(404, `User number ${req.params.mentorId} is not a mentor`, null).result());
+            } else {
+                delete theMentor['password'], delete theMentor['token'], delete theMentor['is_admin'], delete theMentor['is_mentor'];
                 return res
-                .status(200)
-                .json(new ResponseHandler(200, 'Your mentor.', theMentor, null).result());
+                    .status(200)
+                    .json(new ResponseHandler(200, 'Your mentor.', theMentor, null).result());
             }
 
         } catch (err) {

@@ -3,7 +3,7 @@ import Joi from "joi";
 const reviewFields = (review) => {
     
     const schema = {
-        score: Joi.number().required(),
+        score: Joi.number().valid(['1', '2', '3', '4', '5']).required(),
         remark: Joi.string().required(),
         
     };
