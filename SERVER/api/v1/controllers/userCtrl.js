@@ -145,7 +145,7 @@ class User{
                 findUser.is_mentor = Boolean(req.body);  
                 return res
                 .status(200)
-                .json(new ResponseHandler(200, `User number ${req.params.userId} successfully updated.`, lodash.omit(findUser, ['password'])).result())
+                .json(new ResponseHandler(200, `User number ${req.params.userId} successfully updated.`, lodash.omit(findUser, ['password', 'token'])).result())
 
         }catch(err){
             return res
