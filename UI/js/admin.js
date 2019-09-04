@@ -11,7 +11,7 @@ const animatedForm = ()=>{
             // Execute validation 
            if(userInput.type === 'email' && validateEmail(userInput)){
                 nextField(parentDiv, nextForm);
-            }else if(userInput.type === 'password' && validateInput(userInput)){
+            }else if(userInput.type === 'password' && validatePassword(userInput)){
                 nextField(parentDiv, nextForm);
 
             }else {
@@ -27,20 +27,52 @@ const animatedForm = ()=>{
 
 } 
 
-const validateInput = (userData) => {
-    if(userData.value.length < 6 && userData.value === ''){
-        return alert('Something wrong with you info you provided.')
+const validatePassword = (userData)=> {
+    const wrongInput = document.getElementById('wrongInput');
+    if(userData.value.length < 8 && userData.value === ''){
+        wrongInput.innerHTML = 'Password must be 8 characters containing 1 capital letter, 1 digit and 1 special character';
+        wrongInput.style = `
+            width: 27%;
+            padding: 10px 0 10px 0;
+            margin-left: 36%;
+            color: red;
+            font-size: 15px;
+            top: 55%;
+            border-radius: 6px;
+            background: #fff; 
+            opacity: 0.9;
+            position: absolute;
+            text-align: center;`;
+        return;
     }else {
-        return true;    
+        wrongInput.innerHTML = '';
+        wrongInput.style.background = 'none';
+        return true;
     }
+
 }
 
 const validateEmail = (email) =>{
     const validMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(validMail.test(email.value) && email.value === 'moise@freementors.com'){
+    if(validMail.test(email.value)){
+        wrongInput.innerHTML = '';
+        wrongInput.style.background = 'none';
         return true;
     }else{
-        return alert('Email seems to be invalid.');
+        wrongInput.innerHTML = 'Invalid Email.';
+        wrongInput.style = `
+            width: 27%;
+            padding: 10px 0 10px 0;
+            margin-left: 36%;
+            color: red;
+            font-size: 15px;
+            top: 55%;
+            border-radius: 6px;
+            background: #fff; 
+            opacity: 0.9;
+            position: absolute;
+            text-align: center;`;
+        return;
     }
 }
 const nextField = (parentDiv, nextForm) =>{

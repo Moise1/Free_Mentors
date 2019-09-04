@@ -98,7 +98,7 @@ body {
 
     .notification img {
         width: 5%;
-        margin-top: -8%;
+        margin-top: -7%;
         margin-right: 20px;
         float: right;
         cursor: pointer;
@@ -121,12 +121,13 @@ body {
     }
 
 .noti-list a:hover {
-    background-color: #ddd;
+    background-color: #008000;
 }
 
 .notification:hover .noti-list {
     display: block;
     left: 70%;
+    top: -8px;
 }
 
 .notification:hover .bell {
@@ -322,46 +323,48 @@ body {
     }
 
 
-    .bell{
-        width: 3%;
-        top: 25%;
-        left: 95%;
-        /* position: absolute; */
+    .notification {
+        position: relative; 
+        display: inline-block;
+    }
+
+    .notification img {
+        width: 5%;
+        margin-top: -7%;
+        margin-right: 20px;
+        float: right;
         cursor: pointer;
     }
 
-    .noti-list {
-        visibility: hidden;
-        width: 160px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
+    .noti-list  {
+        display: none;
         position: absolute;
+        background-color: #000;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        top: 90%;
-        left: 81%;
-        margin-left: -60px;
     }
 
-
-    .notification .noti-list::after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent black transparent;
+    .noti-list a{
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
     }
 
+.noti-list a:hover {
+    background-color: #008000;
+}
 
-    .notification:hover .noti-list {
-        visibility: visible;
-    }
+.notification:hover .noti-list {
+    display: block;
+    left: 70%;
+    top: -8px;
+}
 
+.notification:hover .bell {
+    background-color: none;
+}
     #admin-dash {
         position: absolute;
         margin-bottom: 40px;

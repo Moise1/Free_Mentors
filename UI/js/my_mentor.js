@@ -1,6 +1,5 @@
 const selectedMentor = document.querySelector('.selected-mentor'); 
-const externFile = document.getElementsByTagName('link')[0].import; 
-const reachOne = externFile.getElementById('reachOne');
+const reachOne = document.getElementById('reachOne');
 const laptopScreen = window.matchMedia('(min-width: 1224px)');
 const mobileScreen = window.matchMedia('(min-width: 300px)');
 
@@ -24,7 +23,7 @@ window.addEventListener('load', ()=>{
             <li><strong>Name: </strong> Kobe Bryant</li><br>
             <li><strong>Bio: </strong> A 44-year old husband and father of 2.</li><br>
             <li><strong>Occupation: </strong> Retired professional basketball player</li><br>
-            <li><strong>Expertise: </strong> 20 years</li><br>
+            <li><strong>Expertise: </strong> 20 Teen training</li><br>
                 <button style="
                 background: #000;
                 padding: 10px;
@@ -33,7 +32,9 @@ window.addEventListener('load', ()=>{
                 border: 1px solid #000;
                 border-radius: 2px;
                 cursor: pointer;
-            ">Send Request</button>
+            "
+            onclick="document.getElementById('form').style.display='block'"
+            >Send Request</button>
             </ul>
         </div>`
         }else if(mobileScreen.matches){
@@ -55,7 +56,7 @@ window.addEventListener('load', ()=>{
             <li><strong>Bio: </strong> A 44-year old husband and father of 2.</li><br>
             <li><strong>Occupation: </strong> Retired professional basketball player</li><br>
             <li><strong>Expertise: </strong> 20 years</li><br>
-                <button style="
+                <button id="requestBtn" style="
                 background: #000;
                 padding: 10px;
                 margin-bottom: 20px;
@@ -69,3 +70,14 @@ window.addEventListener('load', ()=>{
         }
 });
 
+
+const form = document.getElementById('form');
+const closebtn = document.getElementById('closebtn').addEventListener('click', ()=>{
+    form.style.display = "none";
+})
+
+window.onclick = (e) =>{
+    if (e.target == form) {
+      form.style.display = "none";
+    }
+  }

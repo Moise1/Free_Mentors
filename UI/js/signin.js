@@ -40,7 +40,7 @@ const validatePassword = (userData)=> {
             font-size: 15px;
             top: 55%;
             border-radius: 6px;
-            background: #fff; 
+            background: #000; 
             opacity: 0.9;
             position: absolute;
             text-align: center;`;
