@@ -91,48 +91,48 @@ body {
         padding-left: 5px;
     }
 
-    .notification img{
+    .notification {
+        position: relative; 
+        display: inline-block;
+    }
+
+    .notification img {
         width: 5%;
-        top: 25%;
-        left: 85%;
-        position: absolute;
+        margin-top: -7%;
+        margin-right: 20px;
+        float: right;
         cursor: pointer;
     }
 
-    .bell-title {
-        visibility: hidden;
-        width: 160px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
+    .noti-list  {
+        display: none;
         position: absolute;
+        background-color: #000;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        top: 90%;
-        left: 81%;
-        /* border: 2px solid red; */
-        margin-left: -60px;
-      }
+    }
 
+    .noti-list a{
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
 
-    .notification .bell-title::after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent black transparent;
-      }
+.noti-list a:hover {
+    background-color: #008000;
+}
 
+.notification:hover .noti-list {
+    display: block;
+    left: 70%;
+    top: -8px;
+}
 
-      .notification:hover .bell-title {
-        visibility: visible;
-      }
-
-
+.notification:hover .bell {
+    background-color: none;
+}
 
     .content-container {
         grid-column: span 13;
@@ -146,7 +146,7 @@ body {
         position: relative;
     }
 
-    .mentor-info .reach-btn{
+    .mentor-info .reach-btn {
         background: #000;
         padding: 10px;
         margin-bottom: 20px;
@@ -156,7 +156,7 @@ body {
         cursor: pointer;
     }
 
-    .mentor-info .reach-btn:focus{
+    .mentor-info .reach-btn:focus {
         outline: none;
     }
 
@@ -238,7 +238,7 @@ body {
         top: 100%;
     }
 
-    [type="checkbox"]:checked +label:before {
+    [type="checkbox"]:checked+label:before {
         content: ' Show Less';
     }
 
@@ -256,9 +256,9 @@ body {
 }
 
 
-/* Tablet screen */ 
+/* Tablet screen */
 
-@media only screen and (max-width: 1024px) and (orientation: landscape){
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
 
     nav {
         display: none;
@@ -323,51 +323,53 @@ body {
     }
 
 
-    .notification img{
-        width: 3%;
-        top: 25%;
-        left: 95%;
-        position: absolute;
+    .notification {
+        position: relative; 
+        display: inline-block;
+    }
+
+    .notification img {
+        width: 5%;
+        margin-top: -7%;
+        margin-right: 20px;
+        float: right;
         cursor: pointer;
     }
 
-    .bell-title {
-        visibility: hidden;
-        width: 160px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
+    .noti-list  {
+        display: none;
         position: absolute;
+        background-color: #000;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        top: 90%;
-        left: 81%;
-        margin-left: -60px;
-      }
+    }
 
+    .noti-list a{
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
 
-    .notification .bell-title::after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent black transparent;
-      }
+.noti-list a:hover {
+    background-color: #008000;
+}
 
+.notification:hover .noti-list {
+    display: block;
+    left: 70%;
+    top: -8px;
+}
 
-      .notification:hover .bell-title {
-        visibility: visible;
-      }
-
-    #admin-dash{
+.notification:hover .bell {
+    background-color: none;
+}
+    #admin-dash {
         position: absolute;
         margin-bottom: 40px;
         width: 11%;
-        padding: 10px 0 0 -4px; 
+        padding: 10px 0 0 -4px;
     }
 
     #free-mentors {
@@ -383,6 +385,7 @@ body {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 10;
     }
+
     .content-container {
         grid-column: 1/13;
         grid-row: 2/6;
@@ -394,7 +397,7 @@ body {
         position: relative;
     }
 
-    .mentor-info .reach-btn{
+    .mentor-info .reach-btn {
         background: #000;
         padding: 10px;
         margin-bottom: 20px;
@@ -404,7 +407,7 @@ body {
         cursor: pointer;
     }
 
-    .mentor-info .reach-btn:focus{
+    .mentor-info .reach-btn:focus {
         outline: none;
     }
 
@@ -488,7 +491,7 @@ body {
         top: 100%;
     }
 
-    [type="checkbox"]:checked +label:before {
+    [type="checkbox"]:checked+label:before {
         content: ' Show Less';
     }
 
@@ -507,12 +510,12 @@ body {
 }
 
 
-/* Smart phone screen size */ 
+/* Smart phone screen size */
 
 
-@media only screen and (min-width: 300px) and (orientation: portrait){
+@media only screen and (min-width: 300px) and (orientation: portrait) {
 
-    *{
+    * {
         outline: none;
     }
 
@@ -540,14 +543,14 @@ body {
         box-shadow: 0 14px 18px rgba(0, 0, 0, 0.10);
     }
 
-    .logo{
+    .logo {
         display: flex;
         flex-direction: row;
         width: 15%;
-        margin-left: 10px; 
-    }  
+        margin-left: 10px;
+    }
 
-    .logo i{
+    .logo i {
         margin: 20px 0 0 0;
         padding-right: 4px;
     }
@@ -564,7 +567,7 @@ body {
         display: none;
     }
 
-    #free-mentors{
+    #free-mentors {
         color: #008000;
         margin: 0;
         padding-left: 5px;
@@ -664,7 +667,7 @@ body {
 
     }
 
-    
+
     #menu li {
         padding: 10px;
         margin-left: -20px;
@@ -695,13 +698,13 @@ body {
         grid-gap: 10;
         height: auto;
     }
-    
+
     .mentor-info {
         position: relative;
     }
 
 
-    .mentor-info .reach-btn{
+    .mentor-info .reach-btn {
         background: #000;
         padding: 10px;
         margin-bottom: 20px;
@@ -711,10 +714,10 @@ body {
         cursor: pointer;
     }
 
-    .mentor-info .reach-btn:focus{
+    .mentor-info .reach-btn:focus {
         outline: none;
     }
-    
+
 
     .show-more {
         color: #008000;
@@ -793,7 +796,7 @@ body {
         top: 100%;
     }
 
-    [type="checkbox"]:checked +label:before {
+    [type="checkbox"]:checked+label:before {
         content: ' Show Less';
     }
 

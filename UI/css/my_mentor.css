@@ -71,10 +71,10 @@ body {
     }
 
     #admin-dash {
-        position: absolute;
         margin-bottom: 40px;
         width: 30%;
         padding: 10px 0 0 -4px;
+        color: #fff;
     }
 
 
@@ -131,7 +131,131 @@ body {
     }
 
 
-   
+   /* Request form */
+
+input {
+
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 5px;
+
+}
+
+
+
+input:focus {
+    background-color: #ddd;
+    outline: none;
+  
+}
+
+textarea, input {
+  margin: 5% 20% 0 15%;
+  border-radius: 6px;
+  width: 60%;
+  padding: 20px;
+}
+
+textarea:focus {
+
+  outline: none;
+}
+
+.createbtn{
+    background-color: #008000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.cancelbtn,
+.createbtn {
+    float: left;
+    width: 40%;
+    margin: 12.5px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+
+@keyframes animatezoom {
+    from {transform: scale(0)} to {transform: scale(1)}
+}
+
+.form-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 50px;
+    overflow: hidden;
+    animation: animatezoom 0.6s;
+}
+
+
+/* Form Content/Box */
+
+.form-content {
+    max-width: 500px;
+    background-color: #fefefe;
+    margin-top: -3%;
+    margin-left: 30%;
+    border: 1px solid #888;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.form-content label {
+    padding: 20px;
+    margin-left: 15%;
+}
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+
+.clearfix {
+    margin-top: -3px;
+    display: flex;
+    margin-left: 30px;
+}
     .footer p {
         margin-top: 100px;
         text-align: center;
@@ -258,10 +382,140 @@ body {
     .content-container {
         top: 6%;
         padding: 5%;
-        /* width: 100 */
     }
 
-
+    input{
+        width: 100%;
+        padding: 15px;
+        margin: 5px -10px -24px -6px;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        border-radius: 6px;
+    }
+    
+    input:focus {
+        background-color: #ddd;
+    }
+    
+    textarea {
+      margin-top: 10%;
+      width: 100%; 
+      padding: 10px;
+    }
+    
+    .createbtn {
+        background-color: #008000;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        border-radius: 6px;
+    }
+    
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        border-radius: 6px;
+    }
+    
+    .cancelbtn,
+    .createbtn {
+        float: left;
+        width: 40%;
+        margin: 13.5px auto;
+        padding: 15px;
+    }
+    
+    
+    @keyframes animatezoom {
+        from {transform: scale(0)} to {transform: scale(1)}
+    }
+    
+    .form-container {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: -15px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding-top: 50px;
+        animation: animatezoom 0.6s;    
+    
+    }
+    
+    
+    /* Form Content/Box */
+    
+    .form-content {
+        background-color: #fefefe;
+        margin: 1% auto 8% auto;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+        padding: 10px;
+        height: 70%;
+    }
+    
+    
+    .form-content label{
+        padding: 4px;
+    }
+    
+    
+    /* Style the horizontal ruler */
+    
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+    
+    
+    .cancelbtn,
+    .createbtn {
+        width: 100%;
+    }
+    
+    
+     .close {
+         position: absolute;
+         right: 35px;
+         top: 15px;
+         font-size: 40px;
+         font-weight: bold;
+         color: #f1f1f1;
+     }
+    
+     .close:hover,
+     .close:focus {
+         color: #f44336;
+         cursor: pointer;
+     }
+    
+     .clearfix {
+        margin-top: 50px;
+        display: flex;
+        margin-left: 10px; 
+    }
+    
+    .clearfix button{
+        margin: 10px; 
+        width: 35%;
+    }
+    
    
     .footer p {
         margin-top: 100px;
