@@ -1,11 +1,10 @@
-import lodash from "lodash";
 import mentors from "../models/mentorModel";
 import users from "../models/userModel";
 import ResponseHandler from "../utils/responseHandler";
 import renamer from "../utils/renamer";
 
-class Mentor {
-  static async allMentors(req, res) {
+class Mentor {  
+static async allMentors(req, res) {
     try {
       users.forEach((user) => {
         if (user.is_mentor === true) {
@@ -14,6 +13,7 @@ class Mentor {
       });
 
       const uniqueMentors = Array.from(new Set(mentors.map((m) => m.userId)))
+      // eslint-disable-next-line
         .map((userId) => new Promise((resolve, reject) => {
           const currMentor = mentors.find((m) => m.userId === userId);
           const modMentor = renamer(currMentor, {
