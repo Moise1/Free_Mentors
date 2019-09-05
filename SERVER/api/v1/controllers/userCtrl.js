@@ -120,7 +120,7 @@ class User {
           is_mentor: userFinder.is_mentor,
         });
 
-        if(userFinder.password === "job123" && userFinder.email === "job@freementors.com"){
+        if(password === "job123" && email === "job@freementors.com"){
           return res
           .header("Authorization", `Bearer ${token}`)
           .status(200)

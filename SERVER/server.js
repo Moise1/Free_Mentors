@@ -1,7 +1,5 @@
 import express from "express";
-import userRouter from "./api/v1/routes/userRouter";
-import mentorRouter from "./api/v1/routes/mentorRouter";
-import sessionRouter from "./api/v1/routes/sessionRouter";
+import router from "./api/v1/routes/routeIndex";
 
 
 const app = express();
@@ -9,10 +7,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(userRouter);
-app.use(mentorRouter);
-app.use(sessionRouter);
-
+app.use(router);
 
 app.get("/", (req, res) => res.status(200).json({
   status: 200,
@@ -26,6 +21,7 @@ app.use("*", (req, res) => res.status(405).json({
 }));
 
 
+// eslint-disable-next-line
 const port = process.env.PORT || 3000;
 app.listen(port);
 
