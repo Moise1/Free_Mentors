@@ -135,6 +135,10 @@ body {
    h3 {
     margin-left: 40%;
 }
+
+main .request-card {
+    display: none;
+}
 .accounts-table {
     margin: 5%  0 0 9%;
     width: 67%;
@@ -578,6 +582,10 @@ table {
         margin-top: 50px;
     }
 
+    
+    main .accounts-table {
+        display: none;
+    }
     .request-card {
         border-bottom: 1px solid #000;
     }
@@ -635,7 +643,5 @@ table {
         font-weight: bold;
         color: #000;
     }
+} 
 
-
-
-}

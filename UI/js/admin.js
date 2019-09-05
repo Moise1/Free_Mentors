@@ -28,8 +28,10 @@ const animatedForm = ()=>{
 } 
 
 const validatePassword = (userData)=> {
+    const laptopScreen = window.matchMedia('(min-width: 1224px)');
+    const mobileScreen = window.matchMedia('(min-width: 300px)');
     const wrongInput = document.getElementById('wrongInput');
-    if(userData.value.length < 8 && userData.value === ''){
+    if(laptopScreen.matches && userData.value.length < 8 && userData.value === ''){
         wrongInput.innerHTML = 'Password must be 8 characters containing 1 capital letter, 1 digit and 1 special character';
         wrongInput.style = `
             width: 27%;
@@ -44,26 +46,60 @@ const validatePassword = (userData)=> {
             position: absolute;
             text-align: center;`;
         return;
+    }else if(mobileScreen.matches && userData.value === ''){
+        wrongInput.innerHTML = 'Password must be 8 characters containing 1 capital letter, 1 digit and 1 special character';
+        wrongInput.style = `
+            width: 70%;
+            padding: 10px 0px 10px 0;
+            margin-left: 10%;
+            color: red;
+            font-size: 15px;
+            top: 55%;
+            border-radius: 6px;
+            background: #fff; 
+            opacity: 0.9;
+            position: absolute;
+            text-align: center;`;
+        return;
+
     }else {
         wrongInput.innerHTML = '';
         wrongInput.style.background = 'none';
         return true;
     }
-
 }
 
 const validateEmail = (email) =>{
+    const laptopScreen = window.matchMedia('(min-width: 1224px)');
+    const mobileScreen = window.matchMedia('(min-width: 300px)');
+    const wrongInput = document.getElementById('wrongInput');
     const validMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(validMail.test(email.value)){
+
+    if (validMail.test(email.value)) {
         wrongInput.innerHTML = '';
         wrongInput.style.background = 'none';
         return true;
-    }else{
+    } else if(laptopScreen.matches) {
         wrongInput.innerHTML = 'Invalid Email.';
         wrongInput.style = `
             width: 27%;
             padding: 10px 0 10px 0;
             margin-left: 36%;
+            color: red;
+            font-size: 15px;
+            top: 55%;
+            border-radius: 6px;
+            background: #fff; 
+            opacity: 0.9;
+            position: absolute;
+            text-align: center;`;
+        return;
+    }else if(mobileScreen.matches) {
+        wrongInput.innerHTML = 'Invalid Email.';
+        wrongInput.style = `
+            width: 70%;
+            padding: 10px 0 10px 0;
+            margin-left: 10%;
             color: red;
             font-size: 15px;
             top: 55%;
