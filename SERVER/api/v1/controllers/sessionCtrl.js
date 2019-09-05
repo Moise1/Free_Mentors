@@ -137,19 +137,19 @@ class MentorshipSession {
         remark
       };
 
-      reviews.forEach(rev => {
-        if(rev.menteeFullName === newReview.menteeFullName) {
-          return res
-            .status(409)
-            .json(new ResponseHandler(409, "Sorry! You cannot review the same session more than once.", null).result());
-        }
-      });
-    
-      reviews.push(newReview);
-      return res
+      if(reviews.some(rev => rev.menteeFullName === newReview.menteeFullName)){
+        return res
+        .status(409)
+        .json(new ResponseHandler(409, "Sorry! You cannot review the same session more than once.", null).result());
+      }else{
+        reviews.push(newReview);
+         return res
         .status(201)
         .json(new ResponseHandler(201, "Thanks for your review.", reviews[reviews.length - 1], null).result());
 
+      }
+    
+      
     } catch (err) {
       return res
         .status(500)

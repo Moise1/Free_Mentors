@@ -50,7 +50,7 @@ describe("MENTORSHIP SESSION TESTING", () => {
       .end((err, res) => {
         expect(res.body).to.be.an("object");
         expect(res.body.status).to.deep.equal(201);
-        expect(res.body.data).to.be.an("array");
+        expect(res.body.data).to.be.an("object");
         expect(res.body.message).to.deep.equal("Mentorship session successfully created!");
         done();
       });
@@ -91,9 +91,8 @@ describe("MENTORSHIP SESSION TESTING", () => {
           .send(updatedRequestTwo)
           .end((err, res) => {
             expect(res.body).to.be.an("object");
-            expect(res.body.status).to.deep.equal(200);
-            expect(res.body.message).to.deep.equal("Mentorship session request successfully updated.");
-            expect(res.body.data).to.be.an("object");
+            expect(res.body.status).to.deep.equal(409);
+            expect(res.body.message).to.deep.equal("Sorry! This request has already been accepted.");
             done();
           });
       });
@@ -110,7 +109,7 @@ describe("MENTORSHIP SESSION TESTING", () => {
         expect(res.body).to.be.an("object");
         expect(res.body.status).to.deep.equal(201);
         expect(res.body.message).to.deep.equal("Thanks for your review.");
-        expect(res.body.data).to.be.an("array");
+        expect(res.body.data).to.be.an("object");
         done();
       });
   });
