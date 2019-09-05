@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/Moise1/Free_Mentors.svg?branch=develop)](https://travis-ci.com/Moise1/Free_Mentors)
+[![Coverage Status](https://coveralls.io/repos/github/Moise1/Free_Mentors/badge.svg?branch=develop)](https://coveralls.io/github/Moise1/Free_Mentors?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/893a95dda32b58970185/maintainability)](https://codeclimate.com/github/Moise1/Free_Mentors/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/893a95dda32b58970185/test_coverage)](https://codeclimate.com/github/Moise1/Free_Mentors/test_coverage)
 
 # Free_Mentors 
 
@@ -95,6 +95,8 @@ Run tests
 `npm test`
 
 
+### API Documentation 
+Check [Apiary](https://freementorsapi.docs.apiary.io/#) to view my API documentation.
 ### Author 
 
 [Moise1](https://github.com/Moise1)
