@@ -1,75 +1,55 @@
-import mentors from "../models/mentorModel";
-import users from "../models/userModel";
-import ResponseHandler from "../utils/responseHandler";
-import renamer from "../utils/renamer";
+import MentorModel from '../models/mentorModel';
+import ResponseHandler from '../utils/responseHandler';
+import lodash from 'lodash';
 
-class Mentor {  
-static async allMentors(req, res) {
-    try {
-      users.forEach((user) => {
-        if (user.is_mentor === true) {
-          mentors.push(user);
+class Mentor {
+
+    static async getAll(req, res) {
+
+        try {
+            const {rows} = await MentorModel.allMentors(); 
+            const modMentors = await Array.from(new Set(rows.map(r => r.mentor_id)))
+            .map(mentor_id => {
+                const theMentor = rows.find(r => r.mentor_id === mentor_id); 
+                return lodash.omit(theMentor, ['password']);
+            })
+            
+            return res
+                .status(200)
+                .json(new ResponseHandler(200, 'All Mentors.',  modMentors, null).result());
+
+        }catch (err) {
+            return res
+                .status(500)
+                .json(new ResponseHandler(500, err.message, null).result());
         }
-      });
 
-      const uniqueMentors = Array.from(new Set(mentors.map((m) => m.userId)))
-      // eslint-disable-next-line
-        .map((userId) => new Promise((resolve, reject) => {
-          const currMentor = mentors.find((m) => m.userId === userId);
-          const modMentor = renamer(currMentor, {
-            userId: "mentorId",
-          });
-          resolve(modMentor);
-        }));
+    };
 
-      Promise.all(uniqueMentors).then((output) => {
-        if (output === undefined || output.length == 0) {
-          return res
-            .status(404)
-            .json(new ResponseHandler(404, "No mentors yet.", null).result());
+    static async getOne(req, res) {
+
+        const {mentor_id} = req.params;
+        const {rows} = await MentorModel.oneMentor(mentor_id);
+        const modMentors = await rows.map(r => lodash.omit(r, ['password']));
+        try {
+            if(rows.length === 0) {
+                return res
+                .status(404)
+                .json(new ResponseHandler(404, `Mentor number ${mentor_id} not found`, null).result());
+            }else {
+                delete rows['password'];
+                return res
+                .status(200)
+                .json(new ResponseHandler(200, 'Your mentor.', modMentors, null).result()); 
+            }
+           
+        } catch (err) {
+            return res
+                .status(500)
+                .json(new ResponseHandler(500, err.message, null).result())
         }
-        output.forEach((obj) => (delete obj.token, delete obj.is_mentor, delete obj.is_admin, delete obj.password));
-
-        return res
-          .status(200)
-          .json(new ResponseHandler(200, "All Mentors", output, null).result());
-      });
-    } catch (err) {
-      return res
-        .status(500)
-        .json(new ResponseHandler(500, err.message, null).result());
     }
-  }
 
-  static async singleMentor(req, res) {
-    const modUsers = await users.map((u) => {
-      const alteredUser = renamer(u, {
-        userId: "mentorId",
-      });
-      return alteredUser;
-    });
-
-    const theMentor = await modUsers.find((m) => m.mentorId === parseInt(req.params.mentorId));
-    try {
-      if (!theMentor || theMentor === undefined) {
-        return res
-          .status(404)
-          .json(new ResponseHandler(404, `Mentor number ${req.params.mentorId} not found`, null).result());
-      } if (theMentor.is_mentor !== true) {
-        return res
-          .status(404)
-          .json(new ResponseHandler(404, `User number ${req.params.mentorId} is not a mentor`, null).result());
-      }
-      delete theMentor.password, delete theMentor.token, delete theMentor.is_admin, delete theMentor.is_mentor;
-      return res
-        .status(200)
-        .json(new ResponseHandler(200, "Your mentor.", theMentor, null).result());
-    } catch (err) {
-      return res
-        .status(500)
-        .json(new ResponseHandler(500, err.message, null).result());
-    }
-  }
 }
 
 

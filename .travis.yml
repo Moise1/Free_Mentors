@@ -7,11 +7,21 @@ cache:
   directories: 
     - "node_modules" 
 
+addons: 
+  postgresql: "9.6" 
     
+services: 
+  - postgresql 
+    
+before_install: 
+  - psql -c 'create database free_mentors_test;' -U postgres
+
+
 before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
     - chmod +x ./cc-test-reporter
     - ./cc-test-reporter before-build 
+
     
 after_script:
     

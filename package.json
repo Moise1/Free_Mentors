@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Free Mentors is a social initiative where accomplished professionals become role models to",
   "main": "server.js",
+  "typings": "dist/index",
   "scripts": {
-    "start": "babel-watch  ./SERVER/server.js",
-    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1000 --require @babel/polyfill --require @babel/register SERVER/api/v1/tests/**/*.test.js --exit",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "db:droptables": "node --require @babel/register ./SERVER/api/v1/db/dropTables.js",
+    "db:migrate": "node --require @babel/register ./SERVER/api/v1/db/dbConnect.js",
+    "admin": "node --require @babel/register ./SERVER/api/v1/db/insertAdmin.js",
+    "start": "npm run db:droptables && npm run db:migrate && npm run admin && babel-watch  ./SERVER/server.js",
+    "test": "NODE_ENV=test  npm run db:droptables && NODE_ENV=test npm run db:migrate && NODE_ENV=test npm run admin && NODE_ENV=test nyc  --reporter=text --reporter=lcov mocha --timeout 1000 --require @babel/polyfill --require @babel/register ./SERVER/api/v1/tests/**/*.test.js --exit",    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "./node_modules/.bin/eslint --fix ./SERVER/**/*.js"
   },
   "repository": {
@@ -41,7 +44,6 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "nodemailer": "^6.2.1",
-    "nodemon": "^1.18.11",
     "pg": "^7.10.0"
   },
   "devDependencies": {
