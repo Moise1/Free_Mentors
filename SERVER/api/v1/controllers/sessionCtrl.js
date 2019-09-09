@@ -46,10 +46,16 @@ class MentorshipSession {
           status: "pending",
         };
 
+        // Check whether the question has already been asked.
+        if (sessions.some((sess) => sess.questions === req.body.questions)) {
+          return res
+            .status(409)
+            .json(new ResponseHandler(409, "Sorry! You cannot ask this question more than once.", null).result());
+        }
         sessions.push(newSession);
         return res
           .status(201)
-          .json(new ResponseHandler(201, "Mentorship session successfully created!", sessions, null).result());
+          .json(new ResponseHandler(201, "Mentorship session successfully created!", sessions[sessions.length - 1], null).result());
       });
     } catch (err) {
       return res
@@ -68,10 +74,25 @@ class MentorshipSession {
           .json(new ResponseHandler(404, `Mentorship sesssion number ${req.params.sessionId} not found`, null).result());
       }
 
-      theSession.status = req.body.status;
-      return res
-        .status(200)
-        .json(new ResponseHandler(200, "Mentorship session request successfully updated.", theSession, null).result());
+      switch (theSession.status) {
+        case "rejected":
+          res
+            .status(409)
+            .json(new ResponseHandler(409, "Sorry! This request has already been rejected.", null).result());
+          break;
+        case "accepted":
+          res
+            .status(409)
+            .json(new ResponseHandler(409, "Sorry! This request has already been accepted.", null).result());
+          break;
+        default:
+          theSession.status = req.body.status;
+          return res
+            .status(200)
+            .json(new ResponseHandler(200, "Mentorship session request successfully updated.", theSession, null).result());
+      }
+
+
     } catch (err) {
       return res
         .status(500)
@@ -91,7 +112,10 @@ class MentorshipSession {
         .json(new ResponseHandler(400, error.details[0].message, null).result());
     }
 
-    const { score, remark } = req.body;
+    const {
+      score,
+      remark
+    } = req.body;
     const mentee = req.user;
 
     const theSession = sessions.find((s) => s.sessionId === parseInt(req.params.sessionId));
@@ -102,19 +126,30 @@ class MentorshipSession {
         .json(new ResponseHandler(404, `Sorry, sesssion number ${req.params.sessionId} not found`, null).result());
     }
     try {
+
+
       const newReview = {
         sessionId: theSession.sessionId,
         mentorId: theSession.mentorId,
         menteeId: theSession.menteeId,
         score,
         menteeFullName: `${mentee.first_name}  ${mentee.last_name}`,
-        remark,
+        remark
       };
 
-      reviews.push(newReview);
-      return res
+      if(reviews.some(rev => rev.menteeFullName === newReview.menteeFullName)){
+        return res
+        .status(409)
+        .json(new ResponseHandler(409, "Sorry! You cannot review the same session more than once.", null).result());
+      }else{
+        reviews.push(newReview);
+         return res
         .status(201)
-        .json(new ResponseHandler(201, "Thanks for your review.", reviews, null).result());
+        .json(new ResponseHandler(201, "Thanks for your review.", reviews[reviews.length - 1], null).result());
+
+      }
+    
+      
     } catch (err) {
       return res
         .status(500)
