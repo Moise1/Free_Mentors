@@ -4,7 +4,7 @@ const sessionFields = (session) => {
   const schema = {
     questions: Joi.string().required(),
     status: Joi.string().regex(/^\S+$/).valid(["pending"]),
-    mentorId: Joi.number().required(),
+    mentor_id: Joi.number().required(),
 
   };
 

@@ -27,7 +27,7 @@ const tables = `
        CREATE TABLE IF NOT EXISTS sessions(
         session_id BIGSERIAL UNIQUE NOT NULL PRIMARY KEY, 
         mentor_id INTEGER REFERENCES mentors(mentor_id) NOT NULL, 
-        mentee_id INTEGER REFERENCES users(user_id),
+        mentee_id INTEGER,
         mentee_email TEXT,
         questions VARCHAR(250) NOT NULL,
         status VARCHAR(50) NOT NULL);

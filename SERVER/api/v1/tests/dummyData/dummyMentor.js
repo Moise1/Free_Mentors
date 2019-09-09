@@ -26,5 +26,13 @@ export default {
     email: "james@gmail.com",
     password: "james123",
   },
+  tokenizedMentee: {
+    user_id: 4, 
+    first_name: 'kalisa', 
+    last_name: 'kabano', 
+    is_admin: 'false',
+    is_mentor: false
+},
+
 
 };
