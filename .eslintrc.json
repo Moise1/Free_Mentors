@@ -14,18 +14,10 @@
     },
     "rules": {
         "indent": 0,
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "no-used-vars": "off",
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "linebreak-style": 0,
+        "quotes": 0,
+        "semi": 0,
+        "no-undef":"off", 
+        "no-unused-vars":"off"
     }
 }
